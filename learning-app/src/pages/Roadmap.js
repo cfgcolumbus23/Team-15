@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
 import './Roadmap.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -9,11 +9,38 @@ const user = {
     path: 1,
     progress: 50,
     rewards: 50,
-};
+}
+
 // Temporary 
 const isLoggedIn= true;
 // Page
 function Roadmap() {
+    {/* Read in JSON File */}
+    const [data,setData]=useState([]);
+    const getData=()=>{
+        fetch('mock.json'
+        ,{
+          headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+        }
+        )
+          .then(function(response){
+            {/* Console log */}
+            console.log(response)
+            return response.json();
+          })
+          .then(function(mockJson) {
+            setData(mockJson);
+          });
+      }
+      useEffect(()=>{
+        getData()
+      },[])
+
+    {/* Everything Else */}
+    
     let content;
     // Display different information if user is not logged in
     if (isLoggedIn){
@@ -24,6 +51,7 @@ function Roadmap() {
     return(
         <div>
             content
+            {data.Path1?.map((item)=><p>{item.moduleName}</p>)}
         </div>
     );
 };
