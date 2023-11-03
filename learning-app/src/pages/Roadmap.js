@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
 import './Roadmap.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+
 // User information 
 const user = {
     name: 'Name',
@@ -10,8 +11,8 @@ const user = {
     rewards: 50,
 }
 
-const isLoggedIn = true;
-
+// Temporary 
+const isLoggedIn= true;
 // Page
 function Roadmap() {
     {/* Read in JSON File */}
@@ -43,7 +44,7 @@ function Roadmap() {
     let content;
     // Display different information if user is not logged in
     if (isLoggedIn){
-        content = <Main_Roadmap />
+        content = <Main_Roadmap />;
     } else {
         // Add login form component
     }
@@ -52,20 +53,19 @@ function Roadmap() {
             {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}>{item.moduleName}</div>)}
         </div>
     );
-}
+};
 
 function Main_Roadmap(){
+    return(
     <div className="Roadmap">
+        <Nav />
         <h2>Welcome to Path {user.path}</h2>
         <p>
-            ROADMAP PAGE.
+            Roadmap Page
         </p>
+        <ProgressBar now={user.progress} label={`${user.progress}%`} class="rewardbar" />
     </div>
-}
-
-// Progress bar
-function RewardBar(){
-    return <ProgressBar now={user.progress} label={`${user.progress}%`} />;
-}
+    );   
+};
 
 export default Roadmap;
