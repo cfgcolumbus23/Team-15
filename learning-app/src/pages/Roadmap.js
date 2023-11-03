@@ -1,3 +1,5 @@
+import React from 'react';
+import { Nav } from '../components/Navbar/NavbarElements';
 import './Roadmap.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 // User information 
