@@ -49,8 +49,7 @@ function Roadmap() {
     }
     return(
         <div>
-            content
-            {data.Path1?.map((item)=><p>{item.moduleName}</p>)}
+            {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}>{item.moduleName}</div>)}
         </div>
     );
 }
