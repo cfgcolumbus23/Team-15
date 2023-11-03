@@ -1,0 +1,23 @@
+{
+    "Path1": [
+        {"moduleName": "Initial Assessment", "reward":"10"},
+        {"moduleName": "Module 1", "reward":"10"},
+        {"moduleName": "Module 2", "reward":"10"},
+        {"moduleName": "Module 3", "reward":"10"},
+        {"moduleName": "Module 4", "reward":"10"}
+    ],
+    "Path2": [
+        {"moduleName": "Initial Assessment", "reward":"10"},
+        {"moduleName": "Module 1", "reward":"10"},
+        {"moduleName": "Module 2", "reward":"10"},
+        {"moduleName": "Module 3", "reward":"10"},
+        {"moduleName": "Module 4", "reward":"10"}
+    ],
+    "Path3": [
+        {"moduleName": "Initial Assessment", "reward":"10"},
+        {"moduleName": "Module 1", "reward":"10"},
+        {"moduleName": "Module 2", "reward":"10"},
+        {"moduleName": "Module 3", "reward":"10"},
+        {"moduleName": "Module 4", "reward":"10"}
+    ]
+}
