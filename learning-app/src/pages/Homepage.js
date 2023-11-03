@@ -1,18 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import './Homepage.css'
+import React from 'react';
+
 const Home = () => {
-  return (
-    <div>
-      <h1>Sign Up Successful</h1>
+    return (
+        <div>
+            <h1>Ctrl+R</h1>
+            <a href="./RoadMap.js">
+            <button class = "button">Get Started</button>
+            </a>
+        </div>
 
-      <h1>Home Screen</h1>
-
-      {/*this will be fixed in the location */}
-      <Link to="Login">
-        <button>Login</button>
-      </Link>
-    </div>
-  );
+        
+    );
 };
-
+ 
 export default Home;
