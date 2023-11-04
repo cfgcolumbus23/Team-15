@@ -1,4 +1,4 @@
-.selection-title {
+.selection {
     margin-top: 22px;
     text-align: center;
 }
@@ -13,8 +13,33 @@
 .selection-column {
     flex: 1;
     margin: 20px;
+    padding: 16px;
     width: 33%;
-    height: 100px;
     background-color: beige;
     border-radius: 16px;
+}
+
+.selection-column-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 16px;
+    text-align: center;
+}
+
+.selection-column-desc {
+    margin: 16px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .selection-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .selection-column {
+        width: 100%;
+        margin: 10px;
+    }
 }
