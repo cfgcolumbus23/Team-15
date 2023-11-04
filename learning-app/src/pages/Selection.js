@@ -3,6 +3,7 @@ import { Nav } from '../components/Navbar/NavbarElements';
 import './Selection.css';
 import { Link } from 'react-router-dom';
 
+// Path Selection
 function Selection() {
 
     {/* Read in JSON File */}
