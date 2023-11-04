@@ -1,0 +1,123 @@
+.signup-form {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 0.375rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.form-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.form-group {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.labelPhoneNumber {
+  color: #4a5568;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.labelNameFirst {
+  color: #4a5568;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.labelNameLast {
+  color: #4a5568;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+
+  display: block;
+}
+
+.labelEmail {
+  color: #4a5568;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.labelPassword {
+  color: #4a5568;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.inputBoxPhoneNumber {
+  width: 300px;
+  padding: 0.5rem;
+  border: 1px solid #020617;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  outline: #020617;
+}
+.inputBoxFirstName {
+  width: 300px;
+
+  padding: 0.5rem;
+  border: 1px solid #020617;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  outline: #020617;
+}
+
+.inputBoxLastName {
+  width: 300px;
+  padding: 0.5rem;
+  border: 1px solid #020617;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  outline: #020617;
+}
+
+.inputBoxPassword {
+  width: 300px;
+  padding: 0.5rem;
+  border: 1px solid #020617;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  outline: #020617;
+}
+.inputBoxEmail {
+  width: 300px;
+  padding-left: 700px;
+  padding: 0.5rem;
+  border: 1px solid #020617;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  outline: #020617;
+}
+
+.AccountButton {
+  width: 100%;
+  background-color: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.AccountButton:hover {
+  background-color: #3182ce;
+}
+.signUp-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}

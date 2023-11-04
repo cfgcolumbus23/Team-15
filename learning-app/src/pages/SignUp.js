@@ -25,17 +25,22 @@ function SendProfileDataToDataBase(profileData) {
     .catch((error) => {
       console.log("Error storing data:", error);
     });
-  }
+}
 // const auth = getAuth();
 function SendUserDataToDataBase(profileData) {
-  createUserWithEmailAndPassword(database, profileData.email, profileData.password).then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+  createUserWithEmailAndPassword(
+    database,
+    profileData.email,
+    profileData.password
+  )
+    .then((userCredential) => {
+      // Signed up
+      const user = userCredential.user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
   console.log("Sent");
   return true;
 }
@@ -51,12 +56,12 @@ function HandleResult(success) {
 //double verify password
 function CreatePassword(profileData, setProfileData) {
   return (
-    <div>
-      <label>
+    <div className="form-group">
+      <label className="labelPassword">
         Password:
         <input
           type="password"
-          className="inputBox"
+          className="inputBoxPassword"
           value={profileData.password}
           onChange={(e) =>
             setProfileData({ ...profileData, password: e.target.value })
@@ -69,12 +74,12 @@ function CreatePassword(profileData, setProfileData) {
 
 function EnterFirstName(profileData, setProfileData) {
   return (
-    <div>
-      <label>
+    <div className="form-group">
+      <label className="labelNameFirst">
         First Name:
         <input
           type="text"
-          className="inputBox"
+          className="inputBoxFirstName"
           value={profileData.firstName}
           onChange={(e) =>
             setProfileData({ ...profileData, firstName: e.target.value })
@@ -87,12 +92,12 @@ function EnterFirstName(profileData, setProfileData) {
 
 function EnterLastName(profileData, setProfileData) {
   return (
-    <div>
-      <label>
+    <div className="form-group">
+      <label className="labelNameLast">
         Last Name:
         <input
           type="text"
-          className="inputBox"
+          className="inputBoxLastName"
           value={profileData.lastName}
           onChange={(e) =>
             setProfileData({ ...profileData, lastName: e.target.value })
@@ -156,12 +161,12 @@ function AgeCalculator(dateOfBirth, setProfileData, profileData) {
 
 function EnterEmail(profileData, setProfileData) {
   return (
-    <div>
-      <label>
+    <div className="form-group">
+      <label className="labelEmail">
         Email:
         <input
           type="text"
-          className="inputBox"
+          className="inputBoxEmail"
           value={profileData.email}
           onChange={(e) =>
             setProfileData({ ...profileData, email: e.target.value })
@@ -174,12 +179,12 @@ function EnterEmail(profileData, setProfileData) {
 
 function EnterPhoneNumber(profileData, setProfileData) {
   return (
-    <div>
-      <label>
+    <div className="form-group">
+      <label className="labelPhoneNumber">
         Phone Number:
         <input
           type="text"
-          className="inputBox"
+          className="inputBoxPhoneNumber"
           value={profileData.phoneNumber}
           onChange={(e) =>
             setProfileData({ ...profileData, phoneNumber: e.target.value })
@@ -220,7 +225,7 @@ function SignUpForm() {
   //Clears the input boxes
   const handleSubmit = (e) => {
     e.preventDefault();
-    SendUserDataToDataBase(profileData)
+    SendUserDataToDataBase(profileData);
     const success = SendProfileDataToDataBase(profileData);
     HandleResult(success);
     ClearInputBoxes(setProfileData);
@@ -228,9 +233,9 @@ function SignUpForm() {
 
   // clean up later into smaller functions
   return (
-    <div className="signup-Page">
+    <div className="signUp-body">
       <form className="signUp-Form" onSubmit={handleSubmit}>
-        <h2>Create your profile</h2>
+        <h1 className="form-title">Create your profile</h1>
         {EnterFirstName(profileData, setProfileData)}
         {EnterLastName(profileData, setProfileData)}
         {EnterEmail(profileData, setProfileData)}
@@ -238,7 +243,9 @@ function SignUpForm() {
         {/* {EnterDateOfBirth(profileData, setProfileData)} */}
         {/* {CreateUsername(profileData, setProfileData)} */}
         {CreatePassword(profileData, setProfileData)}
-        <button type="submit">Create Account</button>
+        <button type="submit" className="AccountButton">
+          Create Account
+        </button>
       </form>
     </div>
   );
