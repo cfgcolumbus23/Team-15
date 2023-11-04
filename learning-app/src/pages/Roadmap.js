@@ -50,10 +50,17 @@ function Roadmap() {
         content = <Main_Roadmap />;
     }
     return(
-        <div class="module-container">
-            {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}><p>{item.moduleName}</p> <p>Reward: ${item.reward}</p></div>)}
+        <> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+            <div class="module-container">
+            {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}>
+                <span class="material-symbols-outlined">{(item.complete == 'True') ? 'check_box' :'check_box_outline_blank'}</span>
+                <p>{item.moduleName}</p>
+                <p>Reward: ${item.reward}</p>
+                </div>)}
             {content}
         </div>
+        </> 
     );
 };
 
