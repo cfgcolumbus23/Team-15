@@ -31,7 +31,7 @@ const Navbar = () => {
         <Bars onClick={toggleMenu} />
         {showMenu && (
           <NavMenu>
-            <NavLink to="/Homepage" activeStyle={{ color: "#4d4dff" }}>
+            <NavLink to="/" activeStyle={{ color: "#4d4dff" }}>
               Homepage
             </NavLink>
             <NavLink to="/Roadmap" activeStyle={{ color: "#4d4dff" }}>
