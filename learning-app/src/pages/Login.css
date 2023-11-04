@@ -1,0 +1,23 @@
+.login-Page {
+  text-align: center;
+  padding-top: 0%;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.formInput {
+  text-align: center;
+  font-size: medium;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.inputTypeText {
+  padding-right: 20px;
+}
+
+.inputBox {
+  /* padding-top: 50px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px; */
+  width: 300px;
+  height: 40px;
+}
