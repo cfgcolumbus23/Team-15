@@ -44,6 +44,9 @@ function RewardBarClosing() {
     // toggle shown state when clicked
     setIsShown(current => !current);
     };
+
+    let sum = 0;
+
     return (
         <div>
     
@@ -51,7 +54,7 @@ function RewardBarClosing() {
           {isShown && (
             <div class="rewarddiv">
                 <container class="barlabel">
-                    {data.Path1?.map((item, index)=>(index % 2 == 0) ? <p>{item.moduleName}</p> : "")}
+                    {data.Path1?.map((item, index)=><p>${sum += parseInt(item.reward)}</p>)}
                 </container>
                 <ProgressBar now={now} label={`${now}%`} class="rewardbar" striped="true"/>
             </div>

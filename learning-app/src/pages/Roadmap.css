@@ -14,8 +14,8 @@
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 16px;
-    background-color: beige;
-    min-width: 350px;
+    background-color: lightblue;
+    min-width: 440px;
 }
 
 .module-card-text {
@@ -46,21 +46,29 @@
     text-align: center;
 }
 
-h3 {
+.module-card-text h3 {
     margin: 0px;
+    text-align: left;
 }
 
 .spacer {
     height: 200px;
 }
 
-p {
+.module-card-text p {
     margin: 0px;
+    text-align: left;
 }
 
 @media (max-width: 600px) {
     .module-card {
       background-color: lightblue;
       min-width: 300px;
+      width: 94%;
     }
+
+    .module-container {
+        width: 100%;
+    }
+
 }
