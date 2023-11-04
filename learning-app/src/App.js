@@ -12,7 +12,7 @@ import Admin from "./pages/Admin";
 import Score from "./pages/Score";
 import Mycourses from "./pages/mycourses";
 import Profile from "./pages/Profile";
-
+import Footer from "./components/Footer/Footer";
 import AuthDetails from "./components/auth/AuthDetails";
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
         <Route path="/score" element={<Score />} />
         <Route path="/Profile" element={<Profile />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
