@@ -2,6 +2,19 @@ import { FaBars } from "react-icons/fa";
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
+
+export const DropdownContainer = styled.div`
+display: flex;
+flex-direction: column;
+position: absolute;
+background: #689ee3;
+top: 20px; /* Adjusted top position */
+right: 0;
+width: 50%;
+text-align: center;
+border-radius: 0 0 0 10px; /* The values represent the top-right, top-left, bottom-left, and bottom-right corner radii, respectively. */
+`;
+
 export const Nav = styled.nav`
   background: #689ee3;
   height: 60px; /* Reduced height */
@@ -21,13 +34,13 @@ export const NavLink = styled(Link)`
   cursor: pointer;
   font-size: 1.25rem; /* Reduced font size */
   &.active {
-    color: #404040;
+    color: #FFFFFF;
   }
 `;
 
 export const Bars = styled(FaBars)`
   display: none;
-  color: #808080;
+  color: #FFFFFF;
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
@@ -54,6 +67,7 @@ export const NavMenu = styled.div`
     right: 0;
     width: 50%;
     text-align: center;
+    border-radius: 0 0 0 10px; /* The values represent the top-right, top-left, bottom-left, and bottom-right corner radii, respectively. */
   }
 `;
 

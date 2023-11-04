@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Nav, NavLink, NavMenu, Bars } from "./NavbarElements";
+import { Nav, NavLink, NavMenu, Bars, DropdownContainer } from "./NavbarElements";
 import { Link } from "react-router-dom";
-import Logo from "./logo"; // Import the Logo component
+import Logo from "./logo"; 
+import { FaClock } from 'react-icons/fa';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(window.innerWidth > 768);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleMenu = () => {
     if (window.innerWidth <= 768) {
       setShowMenu(!showMenu);
     }
+  };
+
+  const handleDropdownEnter = () => {
+    setShowDropdown(true);
+  };
+
+  const handleDropdownLeave = () => {
+    setShowDropdown(false);
   };
 
   useEffect(() => {
@@ -32,28 +43,28 @@ const Navbar = () => {
     <>
       <Nav>
         <Logo />
+        <DropdownContainer 
+          onMouseEnter={handleDropdownEnter} 
+          onMouseLeave={handleDropdownLeave}
+        >
+          <FaClock data-tip="Live certification test 10am 11/4/23" style={{ cursor: 'pointer', marginRight: '1rem' }} size={30} color="white" />
+          {showDropdown && (
+            <div className="dropdown-content">
+              <p>SMARTNet - CERTIPORT Digital Literacy 11/4 9AM-2PM</p>
+              <p>SMARTNet - CompTIA IT Fundamental 11/11 9AM - 2PM</p>
+            </div>
+          )}
+        </DropdownContainer>
         <Bars onClick={toggleMenu} />
         {showMenu && (
           <NavMenu>
-            <NavLink
-              onClick={toggleMenu}
-              to="/Homepage"
-              activeStyle={{ color: "#4d4dff" }}
-            >
+            <NavLink onClick={toggleMenu} to="/Homepage" activeStyle={{ color: "#4d4dff" }}>
               Homepage
             </NavLink>
-            <NavLink
-              onClick={toggleMenu}
-              to="/Roadmap"
-              activeStyle={{ color: "#4d4dff" }}
-            >
+            <NavLink onClick={toggleMenu} to="/Roadmap" activeStyle={{ color: "#4d4dff" }}>
               Roadmap
             </NavLink>
-            <NavLink
-              onClick={toggleMenu}
-              to="/Login"
-              activeStyle={{ color: "#4d4dff" }}
-            >
+            <NavLink onClick={toggleMenu} to="/Login" activeStyle={{ color: "#4d4dff" }}>
               Login
             </NavLink>
           </NavMenu>
