@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
 import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 var loggedIn = false;
 
@@ -54,18 +54,17 @@ function LoginForm() {
     password: "",
   });
   const navigate = useNavigate();
-  const navigateAdmin = useNavigate();
-  function HandleResult(success, navigate) {
-    if (true) {
-      navigate("/roadmap");
-      navigateAdmin("/admin")
 
+  function HandleResult(success, navigate, login) {
+    if (success) {
+      if (login.username == "admin@admin.com") {
+        navigate("/Admin");
+      } else {
+        navigate("/Roadmap");
+      }
       //switch to the new screen that says Success!
       //Pull information regarding if the user completed the assessment
       //for now assume they did not:
-    } else {
-      //display an error message
-      console.log("Failure");
     }
   }
 
@@ -78,12 +77,7 @@ function LoginForm() {
     AuthenticateLoginInformation(login)
       .then((userCredential) => {
         // User is signed in
-        if (login.username == "admin@admin.com") {
-          HandleResult(true, navigateAdmin)
-        } else {
-          HandleResult(true, navigate);
-        }
-        
+        HandleResult(true, navigate, login);
       })
       .catch((error) => {
         // Handle Errors here.
@@ -98,25 +92,25 @@ function LoginForm() {
   // clean up later into smaller functions
   return (
     <div className="login-Page">
-    <form className="login-form" onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      {/* {error && <p className="error-message">{error}</p>}  */}
-      {EmailInput(login, setLogin)}
-      {PasswordInput(login, setLogin)}
-      <button type="submit" id="loginbutton">Login</button>
-    </form>
-    <Link to="/SignUp" id="signup">
-      <p class="subtext">Don't have an account?</p>
-      <button id="signupbutton">Sign up here</button>
-    </Link>
-  </div>
-)};
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        {/* {error && <p className="error-message">{error}</p>}  */}
+        {EmailInput(login, setLogin)}
+        {PasswordInput(login, setLogin)}
+        <button type="submit" id="loginbutton">
+          Login
+        </button>
+      </form>
+      <Link to="/SignUp" id="signup">
+        <p class="subtext">Don't have an account?</p>
+        <button id="signupbutton">Sign up here</button>
+      </Link>
+    </div>
+  );
+}
 
 function Login() {
-
-  return (
-  <LoginForm />
-  );
+  return <LoginForm />;
 }
 
 export default Login;
