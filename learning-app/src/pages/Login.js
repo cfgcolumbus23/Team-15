@@ -8,7 +8,7 @@ import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the imp
 //Call the backend to authenticate the login information
 //have it return a success or failure
 function AuthenticateLoginInformation(login) {
-  return signInWithEmailAndPassword(auth, login.username, login.password);
+  return signInWithEmailAndPassword(auth, login.email, login.password);
 }
 
 function HandleResult(success) {
@@ -21,17 +21,17 @@ function HandleResult(success) {
   }
 }
 
-function UsernameInput(login, setLogin) {
+function EmailInput(login, setLogin) {
   return (
     <div className="formInput">
-      {/*Center the box and username later*/}
+      {/*Center the box and email later*/}
       <label>
-        Username:
+        Email:
         <input
           type="text"
           className="inputBox"
-          value={login.username}
-          onChange={(e) => setLogin({ ...login, username: e.target.value })}
+          value={login.email}
+          onChange={(e) => setLogin({ ...login, email: e.target.value })}
         />
       </label>
     </div>
@@ -54,14 +54,14 @@ function PasswordInput(login, setLogin) {
   );
 }
 
-//Store the username and password
+//Store the email and password
 function LoginForm() {
   const [login, setLogin] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
-  //Saves the username and password
+  //Saves the email and password
   //Authenticates it
   //Clears the input boxes
   const handleSubmit = (e) => {
@@ -79,7 +79,7 @@ function LoginForm() {
         console.log(errorCode, errorMessage);
         HandleResult(false);
       });
-    setLogin({ username: "", password: "" }); //clear Data
+    setLogin({ email: "", password: "" }); //clear Data
   };
 
   // clean up later into smaller functions
@@ -87,7 +87,7 @@ function LoginForm() {
     <div className="login-Page">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
-        {UsernameInput(login, setLogin)}
+        {EmailInput(login, setLogin)}
         {PasswordInput(login, setLogin)}
         <button type="submit">Login</button>
       </form>
