@@ -4,7 +4,7 @@
     justify-content: left;
     align-items: center;
     padding: 20px;
-    margin: 20px;
+    margin: 0px;
     border-radius: 16px;
 }
 
@@ -12,10 +12,10 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    margin: 20px;
+    margin-bottom: 20px;
     border-radius: 16px;
     background-color: beige;
-    min-width: 300px;
+    min-width: 350px;
 }
 
 .module-card-text {
@@ -41,6 +41,11 @@
     color: black
 }
 
+.module-title {
+    margin-top: 22px;
+    text-align: center;
+}
+
 h3 {
     margin: 0px;
 }
@@ -49,8 +54,9 @@ p {
     margin: 0px;
 }
 
-@media only screen and (max-width: 600px) {
-    .module {
+@media (max-width: 600px) {
+    .module-card {
       background-color: lightblue;
+      min-width: 300px;
     }
-  }
+}

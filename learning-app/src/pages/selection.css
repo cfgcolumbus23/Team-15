@@ -1,0 +1,20 @@
+.selection-title {
+    margin-top: 22px;
+    text-align: center;
+}
+
+.selection-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100px;
+    padding: 20px;
+}
+
+.selection-column {
+    flex: 1;
+    margin: 20px;
+    width: 33%;
+    height: 100px;
+    background-color: beige;
+    border-radius: 16px;
+}

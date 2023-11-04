@@ -7,10 +7,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Homepage";
 import Roadmap from "./pages/Roadmap";
 import Login from "./pages/Login";
+import Selection from "./pages/Selection";
 function App() {
-  //useEffect(()=>{
-  //  createNote()
-  //})
+  // useEffect(()=>{
+  //   createNote()
+  // })
   return (
     <Router>
       <Navbar />
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/selection" element={<Selection />} />
       </Routes>
       <RewardBar />
     </Router>

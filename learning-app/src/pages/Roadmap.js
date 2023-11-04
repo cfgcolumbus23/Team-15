@@ -54,6 +54,7 @@ function Roadmap() {
     return(
         <>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <div class="module-title"><h2>Welcome to Path {user.path}</h2></div>
             <div class="module-container">
             {data.Path1?.map((item, index)=><div class="module-card" id={`module-${index}`}>
                 <div class="module-card-text">
@@ -75,10 +76,6 @@ function Main_Roadmap(){
     return(
     <div className="Roadmap">
         <Nav />
-        <h2>Welcome to Path {user.path}</h2>
-        <p>
-            Roadmap Page
-        </p>
     </div>
     );   
 };
