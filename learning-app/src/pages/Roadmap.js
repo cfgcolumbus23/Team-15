@@ -1,15 +1,16 @@
 import React,{useState,useEffect} from 'react';
-import { Nav } from '../components/Navbar/NavbarElements';
-import { RewardBar } from '../components/Rewardbar/RewardbarElement';
 import './Roadmap.css';
+import { RewardBar } from '../components/Rewardbar/RewardbarElement';
 
 // User information 
 const user = {
-    name: 'Name',
-    path: 1,
-    progress: 50,
-    rewards: 50,
+  name: 'Name',
+  path: 1,
+  progress: 50,
+  rewards: 50,
+  courses: ['IT','Microsoft Excel']
 }
+
 // Path information
 
 // Temporary 
@@ -17,8 +18,6 @@ const isLoggedIn= true;
 
 // Page
 function Roadmap() {
-    {/* Everything Else */}
-    
     let content;
     // Display different information if user is not logged in
     if (isLoggedIn){
@@ -74,6 +73,7 @@ function Main_Roadmap(){
                 </div>
                 </div>)}
         </div>
+        <RewardBar />
     </div>
     );   
 };
