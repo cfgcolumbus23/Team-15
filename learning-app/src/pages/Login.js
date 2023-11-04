@@ -6,8 +6,10 @@ import { auth } from "../Connection"; // Assuming Connection.js is in the src fo
 import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
 import { useNavigate } from 'react-router-dom';
 
+//Call the backend to authenticate the login information
+//have it return a success or failure
 function AuthenticateLoginInformation(login) {
-  return signInWithEmailAndPassword(auth, login.email, login.password);
+  return signInWithEmailAndPassword(auth, login.username, login.password);
 }
 
 const switchScreenToAssessement = () => {
@@ -38,20 +40,21 @@ function HandleResult(success) {
 function EmailInput(login, setLogin) {
   return (
     <div className="formInput">
+      {/*Center the box and username later*/}
       <label>
-        Email:
+        Username:
         <input
           type="text"
           className="inputBox"
-          value={login.email}
-          onChange={(e) => setLogin({ ...login, email: e.target.value })}
+          value={login.username}
+          onChange={(e) => setLogin({ ...login, username: e.target.value })}
         />
       </label>
     </div>
   );
 }
 
-function PasswordInput({ login, setLogin }) {
+function PasswordInput(login, setLogin) {
   return (
     <div className="formInput">
       <label>
@@ -67,37 +70,35 @@ function PasswordInput({ login, setLogin }) {
   );
 }
 
+//Store the username and password
 function LoginForm() {
   const [login, setLogin] = useState({
-    email: "",
+    username: "",
     password: "",
   });
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
 
-  function handleResult(success, errorMessage = "") {
-    if (true) {
-      navigate('/roadmap'); // Navigate to the roadmap page if login is successful
-    } else {
-      console.log("Failure", errorMessage);
-      setError(errorMessage); // Set the error message state to display the error
-    }
-  }
-
+  //Saves the username and password
+  //Authenticates it
+  //Clears the input boxes
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(login);
     AuthenticateLoginInformation(login)
-      .then(() => {
-        handleResult(true);
+      .then((userCredential) => {
+        // User is signed in
+        HandleResult(true);
       })
       .catch((error) => {
+        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        handleResult(false, errorMessage);
+        console.log(errorCode, errorMessage);
+        HandleResult(false);
       });
-    setLogin({ email: "", password: "" }); // Clear login state
+    setLogin({ username: "", password: "" }); //clear Data
   };
 
+  // clean up later into smaller functions
   return (
     <div className="login-Page">
     <form className="login-form" onSubmit={handleSubmit}>
@@ -116,8 +117,9 @@ function LoginForm() {
 function Login() {
   return (
     <div>
-      <h1><LoginForm /></h1>
+      <h1> {LoginForm()}</h1>
     </div>
   );
 }
+
 export default Login;
