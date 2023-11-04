@@ -31,28 +31,19 @@ export default function Home() {
   return (
     <>
       <div className='selection'>
-        <h1>Select a Path</h1>
+        <h1>Welcome to CTRL-R!</h1>
       </div>
       <div className='selection-container'>
         <div id='selection-column-1' className='selection-column'>
           <div className='selection-column-title'>
-            <h2>IT Helpdesk Path</h2>
+            <h2>Our Goals</h2>
           </div>
           <div className='selection-column-desc'>
             <p>
-              The IT Helpdesk Path is designed to prepare learners for
-              roles that involve providing technical support and
-              troubleshooting services to end-users. This path combines
-              customer service skills with technical expertise to address
-              computer software, hardware, and network issues.
+              CTRL-R is an online learning management system (LMS) focused
+              on connecting you with the resources and opportunities you deserve.
             </p>
           </div>
-          <div className='selection-column-career'>
-            <h3>Career Info:</h3>
-            <p>Helpdesk Technicians - $50k</p>
-            <p>Support Analysts - $60k</p>
-          </div>
-          <button className='selection-column-button'>Start Path</button>
         </div>
         <div id='selection-column-2' className='selection-column'>
           <div className='selection-column-title'>
