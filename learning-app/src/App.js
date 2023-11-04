@@ -11,11 +11,13 @@ import Assessment from "./pages/Assessment";
 import Admin from "./pages/Admin";
 import Score from "./pages/Score";
 import Mycourses from "./pages/mycourses";
+import AuthDetails from "./components/auth/AuthDetails";
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <AuthDetails />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/roadmap" element={<Roadmap />} />

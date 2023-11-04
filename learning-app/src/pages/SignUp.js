@@ -10,9 +10,10 @@ import { ref, set } from "firebase/database";
 //Call the backend to authenticate the login information
 //have it return a success or failure
 function SendProfileDataToDataBase(profileData) {
-  set(ref(database, "users/" + profileData.email), {
+  set(ref(database, "users/" + profileData.username), {
     firstName: profileData.firstName,
     lastName: profileData.lastName,
+    username: profileData.username,
     password: profileData.password,
     age: profileData.age,
     birthDate: profileData.dateOfBirth,
@@ -65,6 +66,23 @@ function CreatePassword(profileData, setProfileData) {
           value={profileData.password}
           onChange={(e) =>
             setProfileData({ ...profileData, password: e.target.value })
+          }
+        />
+      </label>
+    </div>
+  );
+}
+function CreateUsername(profileData, setProfileData) {
+  return (
+    <div className="form-group">
+      <label className="labelUsername">
+        Username:
+        <input
+          type="text"
+          className="inputBox"
+          value={profileData.username}
+          onChange={(e) =>
+            setProfileData({ ...profileData, username: e.target.value })
           }
         />
       </label>
@@ -199,6 +217,7 @@ function ClearInputBoxes(setProfileData) {
   return setProfileData({
     firstName: "",
     lastName: "",
+    username: "",
     password: "",
     age: "",
     dateOfBirth: "",
@@ -212,6 +231,7 @@ function SignUpForm() {
   const [profileData, setProfileData] = useState({
     firstName: "",
     lastName: "",
+    username: "",
     password: "",
     verifyPassword: "",
     age: "",
@@ -241,7 +261,7 @@ function SignUpForm() {
         {EnterEmail(profileData, setProfileData)}
         {EnterPhoneNumber(profileData, setProfileData)}
         {/* {EnterDateOfBirth(profileData, setProfileData)} */}
-        {/* {CreateUsername(profileData, setProfileData)} */}
+        {CreateUsername(profileData, setProfileData)}
         {CreatePassword(profileData, setProfileData)}
         <button type="submit" className="AccountButton">
           Create Account
