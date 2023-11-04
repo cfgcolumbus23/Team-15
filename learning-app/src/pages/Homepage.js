@@ -32,7 +32,6 @@ export default function Home() {
     <>
       <div className='homepage'>
         <h1>Welcome to CTRL-R!</h1>
-      </div>
       <div className='homepage-container'>
         <div id='selection-column-1' className='homepage-column'>
           <div className='selection-column-title'>
@@ -60,6 +59,7 @@ export default function Home() {
       </div>
       <div id="button-wrapper">
         <button id="Button-home"><h3>Get Started</h3></button>
+      </div>
       </div>
     </>
   );

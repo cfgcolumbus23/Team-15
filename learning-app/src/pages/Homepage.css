@@ -20,6 +20,7 @@ h2 {
 .homepage {
   text-align: center;
   padding: 20px;
+  align-items: center;
 }
 
 
@@ -90,4 +91,23 @@ h2 {
 
 .selection-column-button:hover {
   background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .homepage-container {
+    width: 80%;
+  }
+  
+  .homepage-column {
+    width: 80%;
+  }
+  
+  #button-wrapper {
+    flex-direction: column;
+  }
+  
+  #Button-home {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
