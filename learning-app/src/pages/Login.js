@@ -54,9 +54,11 @@ function LoginForm() {
     password: "",
   });
   const navigate = useNavigate();
+  const navigateAdmin = useNavigate();
   function HandleResult(success, navigate) {
     if (true) {
       navigate("/roadmap");
+      navigateAdmin("/admin")
 
       //switch to the new screen that says Success!
       //Pull information regarding if the user completed the assessment
@@ -76,7 +78,12 @@ function LoginForm() {
     AuthenticateLoginInformation(login)
       .then((userCredential) => {
         // User is signed in
-        HandleResult(true, navigate);
+        if (login.username == "admin@admin.com") {
+          HandleResult(true, navigateAdmin)
+        } else {
+          HandleResult(true, navigate);
+        }
+        
       })
       .catch((error) => {
         // Handle Errors here.

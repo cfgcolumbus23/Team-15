@@ -1,24 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logoImage from "./CTRL+R_LOGO.png"; // Import the logo image
+import { useLocation } from 'react-router-dom';
 
 const user = {
-  name: "Tom Cook",
   email: "tom@example.com",
 };
 
 const navigation = [
-  { name: "Homepage", href: "./", current: true },
+  { name: "Homepage", href: "./", current: false },
   { name: "Roadmap", href: "./Roadmap", current: false },
   { name: "My Courses", href: "./mycourses", current: false },
   { name: "Track Selection", href: "./selection", current: false },
+  { name: "Your Profile", href: "./Profile", current: false },
   { name: "Login", href: "./Login", current: false },
 ];
 
 const userNavigation = [
-  { name: "Your Profile", href: "./Profile" },
+  { name: "Your Profile", href: "./Profile", current: false },
   { name: "Sign out", href: "#" },
 ];
 
@@ -28,6 +29,20 @@ function classNames(...classes) {
 
 export default function Home() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Update the current property of the navigation items based on the current URL path
+    const currentPath = location.pathname;
+    navigation.forEach((item) => {
+      item.current = item.href === currentPath;
+    });
+
+    userNavigation.forEach((item) => {
+      item.current = item.href === currentPath;
+    });
+  }, [location]);
+
   return (
     <Disclosure as="nav" className="bg-gray-600 ">
       {({ open }) => (
@@ -83,7 +98,7 @@ export default function Home() {
                               <a
                                 href={item.href}
                                 className={classNames(
-                                  active ? "bg-gray-100" : "",
+                                  item.current ? "bg-gray-100" : "",
                                   "block px-4 py-2 text-sm text-gray-700"
                                 )}
                               >
@@ -130,30 +145,6 @@ export default function Home() {
                   {item.name}
                 </Disclosure.Button>
               ))}
-            </div>
-            <div className="border-t border-gray-700 pb-3 pt-4">
-              <div className="flex items-left px-4">
-                <div className="">
-                  <div className="text-base font-medium leading-none text-white text-left">
-                    {user.name}
-                  </div>
-                  <div className="text-sm font-medium leading-none text-gray-400 text-left">
-                    {user.email}
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3 space-y-1 px-2">
-                {userNavigation.map((item) => (
-                  <Disclosure.Button
-                    key={item.name}
-                    as="a"
-                    href={item.href}
-                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover-bg-gray-700 hover-text-white"
-                  >
-                    {item.name}
-                  </Disclosure.Button>
-                ))}
-              </div>
             </div>
           </Disclosure.Panel>
         </>
