@@ -34,7 +34,7 @@ function Selection() {
     return (
         <>
         <div className='selection'>
-            <h2>Selection Page: 3 columns of paths</h2>
+            <h2>Select a Path</h2>
         </div>
         </>
     );
