@@ -17,30 +17,6 @@ const isLoggedIn= true;
 
 // Page
 function Roadmap() {
-    {/* Read in JSON File */}
-    const [data,setData]=useState([]);
-    const getData=()=>{
-        fetch('mock.json'
-        ,{
-          headers : { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-           }
-        }
-        )
-          .then(function(response){
-            {/* Console log */}
-            console.log(response)
-            return response.json();
-          })
-          .then(function(mockJson) {
-            setData(mockJson);
-          });
-      }
-      useEffect(()=>{
-        getData()
-      },[])
-
     {/* Everything Else */}
     
     let content;
@@ -52,7 +28,38 @@ function Roadmap() {
         content = <Main_Roadmap />;
     }
     return(
-        <>
+        <div>
+          {content}
+        </div>
+    );
+};
+
+function Main_Roadmap(){
+  {/* Read in JSON File */}
+  const [data,setData]=useState([]);
+  const getData=()=>{
+      fetch('mock.json'
+      ,{
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }
+      }
+      )
+        .then(function(response){
+          {/* Console log */}
+          console.log(response)
+          return response.json();
+        })
+        .then(function(mockJson) {
+          setData(mockJson);
+        });
+    }
+    useEffect(()=>{
+      getData()
+    },[])
+    return(
+    <div className="Roadmap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <div class="module-title"><h2>Welcome to Path {user.path}</h2></div>
             <div class="module-container">
@@ -66,16 +73,7 @@ function Roadmap() {
                     {(item.complete=='True') ? <p>Complete</p> : <p>Start</p>}
                 </div>
                 </div>)}
-            {content}
         </div>
-        </>
-    );
-};
-
-function Main_Roadmap(){
-    return(
-    <div className="Roadmap">
-        <Nav />
     </div>
     );   
 };
