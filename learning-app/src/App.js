@@ -10,7 +10,7 @@ import Selection from "./pages/Selection";
 import Assessment from "./pages/Assessment";
 import Admin from "./pages/Admin";
 import Score from "./pages/Score";
-import Mycourses from "./pages/Mycourses";
+import Mycourses from "./pages/mycourses";
 
 function App() {
   return (
