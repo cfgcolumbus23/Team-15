@@ -36,7 +36,7 @@ function Selection() {
     return (
         <>
         <div className='selection'>
-            <h2>Select a Path</h2>
+            <h1>Select a Path</h1>
         </div>
         <div className='selection-container'>
             <div id='selection-column-1' className='selection-column'>
