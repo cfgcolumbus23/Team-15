@@ -35,22 +35,6 @@ function HandleResult(success) {
   }
 }
 
-function CreateUsername(profileData, setProfileData) {
-  return (
-    <label>
-      Username:
-      <input
-        type="text"
-        className="inputBox"
-        value={profileData.username}
-        onChange={(e) =>
-          setProfileData({ ...profileData, username: e.target.value })
-        }
-      />
-    </label>
-  );
-}
-
 //double verify password
 function CreatePassword(profileData, setProfileData) {
   return (
@@ -197,7 +181,6 @@ function ClearInputBoxes(setProfileData) {
   return setProfileData({
     firstName: "",
     lastName: "",
-    username: "",
     password: "",
     age: "",
     dateOfBirth: "",
@@ -211,7 +194,6 @@ function SignUpForm() {
   const [profileData, setProfileData] = useState({
     firstName: "",
     lastName: "",
-    username: "",
     password: "",
     verifyPassword: "",
     age: "",

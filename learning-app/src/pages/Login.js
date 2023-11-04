@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 //Call the backend to authenticate the login information
 //have it return a success or failure
 function AuthenticateLoginInformation(login) {
-  return signInWithEmailAndPassword(auth, login.username, login.password);
+  return signInWithEmailAndPassword(auth, login.email, login.password);
 }
 
 const switchScreenToAssessement = () => {
@@ -37,17 +37,17 @@ function HandleResult(success) {
   }
 }
 
-function UsernameInput(login, setLogin) {
+function EmailInput(login, setLogin) {
   return (
     <div className="formInput">
-      {/*Center the box and username later*/}
+      {/*Center the box and email later*/}
       <label>
-        Username:
+        Email:
         <input
           type="text"
           className="inputBox"
-          value={login.username}
-          onChange={(e) => setLogin({ ...login, username: e.target.value })}
+          value={login.email}
+          onChange={(e) => setLogin({ ...login, email: e.target.value })}
         />
       </label>
     </div>
@@ -70,9 +70,10 @@ function PasswordInput(login, setLogin) {
   );
 }
 
+//Store the email and password
 function LoginForm() {
   const [login, setLogin] = useState({
-    username: "",
+    email: "",
     password: "",
   });
   const [error, setError] = useState(""); // Add state for the error message
@@ -89,7 +90,7 @@ function LoginForm() {
   }
   // Use this inside LoginForm to access the navigate function
 
-  //Saves the username and password
+  //Saves the email and password
   //Authenticates it
   //Clears the input boxes
   const handleSubmit = (e) => {
@@ -106,7 +107,7 @@ function LoginForm() {
         console.log(errorCode, errorMessage);
         handleResult(false, errorMessage); // Pass the error message to handleResult
       });
-    setLogin({ username: "", password: "" }); //clear Data
+    setLogin({ email: "", password: "" }); //clear Data
   };
 
   
@@ -114,18 +115,19 @@ function LoginForm() {
   // clean up later into smaller functions
   return (
     <div className="login-Page">
-    <form className="login-form" onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      {error && <p className="error-message">{error}</p>} {/* Display error message */}
-      {UsernameInput(login, setLogin)}
-      {PasswordInput(login, setLogin)}
-      <button type="submit">Login</button>
-    </form>
-    <Link to="/SignUp">
-      <button>Don't have an account? Sign up here</button>
-    </Link>
-  </div>
-);
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        {EmailInput(login, setLogin)}
+        {PasswordInput(login, setLogin)}
+        <button type="submit">Login</button>
+      </form>
+
+      {/* //Might Change later */}
+      <Link to="/SignUp">
+        <button>Sign Up</button>
+      </Link>
+    </div>
+  );
 }
 
 //Needs to add a submit button
