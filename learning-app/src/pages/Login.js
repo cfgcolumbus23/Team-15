@@ -1,7 +1,7 @@
 import "./Login.css";
 import React from "react";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 //Call the backend to authenticate the login information
 //have it return a success or failure
 function AuthenticateLoginInformation() {
@@ -80,6 +80,11 @@ function LoginForm() {
         {PasswordInput(login, setLogin)}
         <button type="submit">Login</button>
       </form>
+
+      {/* //Might Change later */}
+      <Link to="/SignUp">
+        <button>Sign Up</button>
+      </Link>
     </div>
   );
 }
