@@ -14,8 +14,8 @@ import Admin from "./pages/Admin";
 import Score from "./pages/Score";
 import Mycourses from "./pages/mycourses";
 import Profile from "./pages/Profile";
-import Footer from "./components/Footer/Footer";
 import AuthDetails from "./components/auth/AuthDetails";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
