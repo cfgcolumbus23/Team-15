@@ -1,24 +1,16 @@
 import "./Login.css";
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
-import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../Connections";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-//Call the backend to authenticate the login information
-//have it return a success or failure
 function AuthenticateLoginInformation(login) {
   return signInWithEmailAndPassword(auth, login.email, login.password);
 }
 
-
-
-
-function EmailInput(login, setLogin) {
+function EmailInput({ login, setLogin }) {
   return (
     <div className="formInput">
-      {/*Center the box and email later*/}
       <label>
         Email:
         <input
@@ -32,7 +24,7 @@ function EmailInput(login, setLogin) {
   );
 }
 
-function PasswordInput(login, setLogin) {
+function PasswordInput({ login, setLogin }) {
   return (
     <div className="formInput">
       <label>
@@ -48,85 +40,57 @@ function PasswordInput(login, setLogin) {
   );
 }
 
-//Store the email and password
 function LoginForm() {
   const [login, setLogin] = useState({
     email: "",
     password: "",
   });
-  const [error, setError] = useState(""); // Add state for the error message
-  const navigate = useNavigate(); // Hook for navigation
-  
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   function handleResult(success, errorMessage = "") {
     if (true) {
-      // Navigate to the roadmap page
-      navigate('/roadmap'); // Make sure to replace '/roadmap' with your actual route
+      navigate('/roadmap'); // Navigate to the roadmap page if login is successful
     } else {
       console.log("Failure", errorMessage);
-      setError(errorMessage); // Update the error state with the error message
+      setError(errorMessage); // Set the error message state to display the error
     }
   }
-  // Use this inside LoginForm to access the navigate function
 
-  //Saves the email and password
-  //Authenticates it
-  //Clears the input boxes
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(login);
     AuthenticateLoginInformation(login)
-      .then((userCredential) => {
-        handleResult(true); // Call handleResult on success
+      .then(() => {
+        handleResult(true);
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        handleResult(false, errorMessage); // Pass the error message to handleResult
+        handleResult(false, errorMessage);
       });
-    setLogin({ email: "", password: "" }); //clear Data
+    setLogin({ email: "", password: "" }); // Clear login state
   };
 
-  
-
-  // clean up later into smaller functions
   return (
     <div className="login-Page">
-    <form className="login-form" onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      {error && <p className="error-message">{error}</p>} {/* Display error message */}
-      {UsernameInput(login, setLogin)}
-      {PasswordInput(login, setLogin)}
-      <button type="submit">Login</button>
-    </form>
-    <Link to="/SignUp">
-      <button>Don't have an account? Sign up here</button>
-    </Link>
-  </div>
-);
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
-        {EmailInput(login, setLogin)}
-        {PasswordInput(login, setLogin)}
+        {error && <p className="error-message">{error}</p>}
+        <EmailInput login={login} setLogin={setLogin} />
+        <PasswordInput login={login} setLogin={setLogin} />
         <button type="submit">Login</button>
+        <Link to="/SignUp">
+          <button type="button">Don't have an account? Sign up here</button>
+        </Link>
       </form>
-
-      {/* //Might Change later */}
-      <Link to="/SignUp">
-        <button>Sign Up</button>
-      </Link>
     </div>
   );
 }
 
-//Needs to add a submit button
-//Needs to add a "dont have a account yet? sign up here button that directs to the sign up page"
-
 function Login() {
   return (
     <div>
-      <h1> {LoginForm()}</h1>
+      <h1><LoginForm /></h1>
     </div>
   );
 }
