@@ -3,10 +3,19 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-
 import Home from "./pages/Homepage";
 import Roadmap from "./pages/Roadmap";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import Selection from "./pages/Selection";
+import Assessment from "./pages/Assessment";
+import Admin from "./pages/Admin";
+import Score from "./pages/Score";
+import Mycourses from "./pages/mycourses";
+import Profile from "./pages/Profile";
+import Footer from "./components/Footer/Footer";
+import AuthDetails from "./components/auth/AuthDetails";
+
 function App() {
   return (
     <Router>
