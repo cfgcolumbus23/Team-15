@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
 import './Roadmap.css';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 // User information 
 const user = {
@@ -10,6 +9,7 @@ const user = {
     progress: 50,
     rewards: 50,
 }
+// Path information
 
 // Temporary 
 const isLoggedIn= true;
@@ -47,11 +47,13 @@ function Roadmap() {
         content = <Main_Roadmap />;
     } else {
         // Add login form component
+        content = <Main_Roadmap />;
     }
     return(
         <div>
-            content
+            {content}
             {data.Path1?.map((item)=><p>{item.moduleName}</p>)}
+            <RewardBar />
         </div>
     );
 };
@@ -64,7 +66,6 @@ function Main_Roadmap(){
         <p>
             Roadmap Page
         </p>
-        <ProgressBar now={user.progress} label={`${user.progress}%`} class="rewardbar" />
     </div>
     );   
 };
