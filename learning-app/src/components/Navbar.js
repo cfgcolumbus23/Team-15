@@ -1,8 +1,15 @@
+
+
+
+
+
+
 import React, { useState } from 'react';
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import logoImage from './CTRL+R_LOGO.png'; // Import the logo image
+
 
 const user = {
   name: 'Tom Cook',
@@ -11,10 +18,12 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
 
+
 const navigation = [
   { name: 'Homepage', href: './', current: true },
   { name: 'Roadmap', href: './Roadmap', current: false },
 ];
+
 
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -22,14 +31,16 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ];
 
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
+
 export default function Home() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(true);
   return (
-    <Disclosure as="nav" className="bg-gray-600	">
+    <Disclosure as="nav" className="bg-gray-600 ">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -38,7 +49,8 @@ export default function Home() {
                 <div className="flex-shrink-0">
                   <img
                     className="h-30 w-40"
-                    src={logoImage} 
+                    src={logoImage}
+
 
                     alt="CTRL+R"
                   />
@@ -73,6 +85,7 @@ export default function Home() {
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
+
 
                   {isUserLoggedIn ? (
                     <Menu as="div" className="relative ml-3">
@@ -183,3 +196,5 @@ export default function Home() {
     </Disclosure>
   );
 }
+
+
