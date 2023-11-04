@@ -1,13 +1,33 @@
 import "./SignUp.css";
 import React from "react";
-import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
+import { useState, useCallback, Link } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+import { database } from "../Connection";
+import { ref, set } from "firebase/database";
 //Call the backend to authenticate the login information
 //have it return a success or failure
-const auth = getAuth();
 function SendProfileDataToDataBase(profileData) {
+  set(ref(database, "users/" + profileData.username), {
+    firstName: profileData.firstName,
+    lastName: profileData.lastName,
+    username: profileData.username,
+    password: profileData.password,
+    age: profileData.age,
+    birthDate: profileData.dateOfBirth,
+    email: profileData.email,
+    phoneNumber: profileData.phoneNumber,
+  })
+    .then(() => {
+      console.log("Data has been successfully stored in the database");
+    })
+    .catch((error) => {
+      console.log("Error storing data:", error);
+    });
+  }
+const auth = getAuth();
+function SendUserDataToDataBase(profileData) {
   createUserWithEmailAndPassword(auth, profileData.email, profileData.password).then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
@@ -22,8 +42,6 @@ function SendProfileDataToDataBase(profileData) {
 
 function HandleResult(success) {
   if (success) {
-    //switch to the new screen that says Success!
-    console.log("Success");
   } else {
     //display an error message
     console.log("Failure");
@@ -42,24 +60,6 @@ function CreatePassword(profileData, setProfileData) {
           value={profileData.password}
           onChange={(e) =>
             setProfileData({ ...profileData, password: e.target.value })
-          }
-        />
-      </label>
-    </div>
-  );
-}
-
-function VerifyValidPassword(profileData, setProfileData) {
-  return (
-    <div>
-      <label>
-        Re-enter Password:
-        <input
-          type="password"
-          className="inputBox"
-          value={profileData.verifyPassword}
-          onChange={(e) =>
-            setProfileData({ ...profileData, verifyPassword: e.target.value })
           }
         />
       </label>
@@ -103,21 +103,52 @@ function EnterLastName(profileData, setProfileData) {
   );
 }
 
+function AgeCalculator(dateOfBirth, setProfileData, profileData) {
+  var today = new Date();
+  var birthDate = new Date(dateOfBirth);
+  var userAge = today.getFullYear() - birthDate.getFullYear();
+  var monthDifference = today.getMonth() - birthDate.getMonth();
+  //if the month is less than 0 then the birthday has not happened yet
+  //if the month is 0 then check if the day has happened yet
+  //if the day is less than 0 then the birthday has not happened yet
+  //if the day is 0 then the birthday is today
+  //if the day is greater than 0 then the birthday has happened
+  if (
+    monthDifference < 0 ||
+    (monthDifference === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    userAge--;
+  }
+  return userAge;
+}
+
 // function EnterAge(profileData, setProfileData) {}
 
 function EnterDateOfBirth(profileData, setProfileData) {
+  const [startDate, setStartDate] = useState(new Date());
+
   return (
     <div>
       <label>
         Date of Birth:
-        <input
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          dateFormat="MM/dd/yyyy"
+          value={profileData.dateOfBirth}
+          // onChange={(e) =>
+          //   setProfileData({ ...profileData, dateOfBirth: e.target.value })
+          // }
+        />
+        {/* /= {AgeCalculator(startDate, setProfileData, profileData)} */}
+        {/* <input
           type="text"
           className="inputBox"
           value={profileData.dateOfBirth}
           onChange={(e) =>
             setProfileData({ ...profileData, dateOfBirth: e.target.value })
           }
-        />
+        /> */}
       </label>
     </div>
   );
@@ -159,21 +190,11 @@ function EnterPhoneNumber(profileData, setProfileData) {
   );
 }
 
-function CreateValidPassword(profileData, setProfileData) {
-  return (
-    <div>
-      {CreatePassword(profileData, setProfileData)}
-      {VerifyValidPassword(profileData, setProfileData)}
-    </div>
-  );
-}
-
 function ClearInputBoxes(setProfileData) {
   return setProfileData({
     firstName: "",
     lastName: "",
     password: "",
-    verifyPassword: "",
     age: "",
     dateOfBirth: "",
     email: "",
@@ -199,6 +220,7 @@ function SignUpForm() {
   //Clears the input boxes
   const handleSubmit = (e) => {
     e.preventDefault();
+    SendUserDataToDataBase(profileData)
     const success = SendProfileDataToDataBase(profileData);
     HandleResult(success);
     ClearInputBoxes(setProfileData);
@@ -209,11 +231,13 @@ function SignUpForm() {
     <div className="signup-Page">
       <form className="signUp-Form" onSubmit={handleSubmit}>
         <h2>Create your profile</h2>
+        {EnterFirstName(profileData, setProfileData)}
         {EnterLastName(profileData, setProfileData)}
         {EnterEmail(profileData, setProfileData)}
         {EnterPhoneNumber(profileData, setProfileData)}
         {EnterDateOfBirth(profileData, setProfileData)}
-        {CreateValidPassword(profileData, setProfileData)}
+        {CreateUsername(profileData, setProfileData)}
+        {CreatePassword(profileData, setProfileData)}
         <button type="submit">Create Account</button>
       </form>
     </div>

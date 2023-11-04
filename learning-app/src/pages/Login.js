@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
 import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
-import { useHistory } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 //Call the backend to authenticate the login information
 //have it return a success or failure
@@ -37,7 +37,7 @@ function HandleResult(success) {
   }
 }
 
-function UsernameInput(login, setLogin) {
+function EmailInput(login, setLogin) {
   return (
     <div className="formInput">
       {/*Center the box and username later*/}
@@ -101,23 +101,18 @@ function LoginForm() {
   // clean up later into smaller functions
   return (
     <div className="login-Page">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        {UsernameInput(login, setLogin)}
-        {PasswordInput(login, setLogin)}
-        <button type="submit">Login</button>
-      </form>
-
-      {/* //Might Change later */}
-      <Link to="/SignUp">
-        <button>Sign Up</button>
-      </Link>
-    </div>
-  );
-}
-
-//Needs to add a submit button
-//Needs to add a "dont have a account yet? sign up here button that directs to the sign up page"
+    <form className="login-form" onSubmit={handleSubmit}>
+      <h2>Login</h2>
+      {error && <p className="error-message">{error}</p>} {/* Display error message */}
+      {EmailInput(login, setLogin)}
+      {PasswordInput(login, setLogin)}
+      <button type="submit">Login</button>
+    </form>
+    <Link to="/SignUp">
+      <button>Don't have an account? Sign up here</button>
+    </Link>
+  </div>
+)};
 
 function Login() {
   return (
