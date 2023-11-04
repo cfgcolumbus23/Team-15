@@ -1,27 +1,23 @@
 {
     "Path1": [
-        {"moduleName": "Initial Assessment", "reward":"10", "complete": "True"},
-        {"moduleName": "Module 1", "reward":"10", "complete": "False"},
-        {"moduleName": "Module 2", "reward":"10", "complete": "False"},
-        {"moduleName": "Module 3", "reward":"10", "complete": "False"},
-        {"moduleName": "Module 4", "reward":"10", "complete": "False"},
-        {"moduleName": "Big Module 1", "reward":"20", "complete": "False"},
-        {"moduleName": "Big Module 2", "reward":"30", "complete": "False"},
-        {"moduleName": "Big Module 3", "reward":"40", "complete": "False"},
-        {"moduleName": "Final Module", "reward":"100", "complete": "False"}
+        {"moduleName": "Initial Assessment", "reward":"10"},
+        {"moduleName": "Module 1", "reward":"10"},
+        {"moduleName": "Module 2", "reward":"10"},
+        {"moduleName": "Module 3", "reward":"10"},
+        {"moduleName": "Module 4", "reward":"10"}
     ],
     "Path2": [
-        {"moduleName": "Initial Assessment", "reward":"10", "complete": "True"},
-        {"moduleName": "Module 1", "reward":"10", "complete": "True"},
-        {"moduleName": "Module 2", "reward":"10", "complete": "True"},
-        {"moduleName": "Module 3", "reward":"10", "complete": "False"},
-        {"moduleName": "Module 4", "reward":"10", "complete": "False"}
+        {"moduleName": "Initial Assessment", "reward":"10"},
+        {"moduleName": "Module 1", "reward":"10"},
+        {"moduleName": "Module 2", "reward":"10"},
+        {"moduleName": "Module 3", "reward":"10"},
+        {"moduleName": "Module 4", "reward":"10"}
     ],
     "Path3": [
-        {"moduleName": "Initial Assessment", "reward":"10", "complete": "True"},
-        {"moduleName": "Module 1", "reward":"10", "complete": "True"},
-        {"moduleName": "Module 2", "reward":"10", "complete": "False"},
-        {"moduleName": "Module 3", "reward":"10", "complete": "False"},
-        {"moduleName": "Module 4", "reward":"10", "complete": "False"}
+        {"moduleName": "Initial Assessment", "reward":"10"},
+        {"moduleName": "Module 1", "reward":"10"},
+        {"moduleName": "Module 2", "reward":"10"},
+        {"moduleName": "Module 3", "reward":"10"},
+        {"moduleName": "Module 4", "reward":"10"}
     ]
 }
