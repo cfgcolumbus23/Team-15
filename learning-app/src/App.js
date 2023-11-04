@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp";
 import Selection from "./pages/Selection";
 import Mycourses from "./pages/Mycourses";
 
+import Assessment from "./pages/Assessment";
 function App() {
   // useEffect(()=>{
   //   createNote()
@@ -24,6 +25,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/selection" element={<Selection />} />
         <Route path="/Mycourses" element={<Mycourses />} />
+        <Route path="/assessment" element={<Assessment />} />
       </Routes>
     </Router>
   );
