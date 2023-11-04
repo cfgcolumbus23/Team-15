@@ -1,6 +1,9 @@
+.signUp-body{
+    background-color: #f3f4f6;
+}
 .signup-form {
   background-color: #ffffff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px #acacac;
   border-radius: 0.375rem;
   padding: 2rem;
   display: flex;
@@ -75,17 +78,19 @@
 
 .AccountButton {
   width: 100%;
-  background-color: #2563eb;
+  background-color: #6897ff;
   color: #fff;
   font-weight: 600;
   padding: 0.5rem;
   border-radius: 0.25rem;
   transition: background-color 0.3s ease;
   margin-top: 0.5rem;
+  font-size: small;
 }
 
 .AccountButton:hover {
-  background-color: #3182ce;
+    border-color: #012a80;
+    background-color: #2f70fd;
 }
 .signUp-body {
   display: flex;
