@@ -51,7 +51,7 @@ function RewardBarClosing() {
           {isShown && (
             <div class="rewarddiv">
                 <container class="barlabel">
-                    {data.Path1?.map((item, index)=><p>{item.moduleName}</p>)}
+                    {data.Path1?.map((item, index)=>(index % 2 == 0) ? <p>{item.moduleName}</p> : "")}
                 </container>
                 <ProgressBar now={now} label={`${now}%`} class="rewardbar" striped="true"/>
             </div>
