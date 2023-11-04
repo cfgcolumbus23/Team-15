@@ -33,13 +33,13 @@ const Navbar = () => {
         <Bars onClick={toggleMenu} />
         {showMenu && (
           <NavMenu>
-            <NavLink to="/Homepage" activeStyle={{ color: "#4d4dff" }}>
+            <NavLink onClick={toggleMenu} to="/Homepage" activeStyle={{ color: "#4d4dff" }}>
               Homepage
             </NavLink>
-            <NavLink to="/Roadmap" activeStyle={{ color: "#4d4dff" }}>
+            <NavLink onClick={toggleMenu} to="/Roadmap" activeStyle={{ color: "#4d4dff" }}>
               Roadmap
             </NavLink>
-            <NavLink to="/Login" activeStyle={{ color: "#4d4dff" }}>
+            <NavLink onClick={toggleMenu} to="/Login" activeStyle={{ color: "#4d4dff" }}>
               Login
             </NavLink>
           </NavMenu>
