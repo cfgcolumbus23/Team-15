@@ -1,4 +1,23 @@
+.module-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    padding: 20px;
+    border-radius: 16px;
+}
+
 .module {
     display: flex;
-    padding: 50px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    background-color: lightblue;
+    min-width: 300px;
 }
+
+@media only screen and (max-width: 600px) {
+    .module {
+      background-color: lightblue;
+    }
+  }

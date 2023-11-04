@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
 import './Roadmap.css';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 // User information 
 const user = {
@@ -10,6 +9,7 @@ const user = {
     progress: 50,
     rewards: 50,
 }
+// Path information
 
 // Temporary 
 const isLoggedIn= true;
@@ -47,11 +47,20 @@ function Roadmap() {
         content = <Main_Roadmap />;
     } else {
         // Add login form component
+        content = <Main_Roadmap />;
     }
     return(
-        <div>
-            {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}>{item.moduleName}</div>)}
+        <> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+            <div class="module-container">
+            {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}>
+                <span class="material-symbols-outlined">{(item.complete == 'True') ? 'check_box' :'check_box_outline_blank'}</span>
+                <p>{item.moduleName}</p>
+                <p>Reward: ${item.reward}</p>
+                </div>)}
+            {content}
         </div>
+        </> 
     );
 };
 
@@ -63,7 +72,6 @@ function Main_Roadmap(){
         <p>
             Roadmap Page
         </p>
-        <ProgressBar now={user.progress} label={`${user.progress}%`} class="rewardbar" />
     </div>
     );   
 };
