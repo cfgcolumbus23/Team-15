@@ -29,22 +29,22 @@ export default function Home() {
       <div className="homepage">
         <h1>Welcome to CTRL-R!</h1>
         <div className="homepage-container">
-          <div id="selection-column-1" className="homepage-column">
-            <div className="selection-column-title">
+          <div id="homepage-column-1" className="homepage-column">
+            <div className="homepage-column-title">
               <h2>Our Goals</h2>
             </div>
-            <div className="selection-column-desc">
+            <div className="homepage-column-desc">
               <p>
                 CTRL-R is an online learning management system (LMS) focused on
                 connecting you with the resources and opportunities you deserve.
               </p>
             </div>
           </div>
-          <div id="selection-column-2" className="homepage-column">
-            <div className="selection-column-title">
+          <div id="homepage-column-2" className="homepage-column">
+            <div className="homepage-column-title">
               <h2>Our Mission</h2>
             </div>
-            <div className="selection-column-desc">
+            <div className="homepage-column-desc">
               <p>
                 Pyramid CDC&apos;s mission is to empower individuals and
                 communities to embrace Computer Technology and Entrepreneurship
