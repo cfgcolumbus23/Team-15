@@ -30,11 +30,11 @@ export default function Home() {
 
   return (
     <>
-      <div className='selection'>
+      <div className='homepage'>
         <h1>Welcome to CTRL-R!</h1>
       </div>
-      <div className='selection-container'>
-        <div id='selection-column-1' className='selection-column'>
+      <div className='homepage-container'>
+        <div id='selection-column-1' className='homepage-column'>
           <div className='selection-column-title'>
             <h2>Our Goals</h2>
           </div>
@@ -45,45 +45,21 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div id='selection-column-2' className='selection-column'>
+        <div id='selection-column-2' className='homepage-column'>
           <div className='selection-column-title'>
-            <h2>Cybersecurity Path</h2>
+            <h2>Our Mission</h2>
           </div>
           <div className='selection-column-desc'>
             <p>
-              The Cybersecurity Path is designed to equip learners with a
-              robust understanding of information technology security
-              principles. This path covers a broad spectrum of IT
-              security aspects, including network security, data
-              protection, and compliance standards.
+            Pyramid CDC&apos;s mission is to empower individuals and communities to
+            embrace Computer Technology and Entrepreneurship Readiness programming 
+            to overcome economic barriers.
             </p>
           </div>
-          <div className='selection-column-career'>
-            <h3>Career Info:</h3>
-            <p>Security Analyst - $70k</p>
-            <p>Penetration Tester - $80k</p>
-          </div>
-          <button className='selection-column-button'>Start Path</button>
         </div>
-        <div id='selection-column-3' className='selection-column'>
-          <div className='selection-column-title'>
-            <h2>Web Development Path</h2>
-          </div>
-          <div className='selection-column-desc'>
-            <p>
-              The Web Development Path is a comprehensive journey through
-              the world of building and maintaining web applications. From
-              frontend to backend, this path teaches the essential skills
-              needed to develop dynamic and responsive websites.
-            </p>
-          </div>
-          <div className='selection-column-career'>
-            <h3>Career Info:</h3>
-            <p>Front-End Developer - $80k</p>
-            <p>Back-End Developer - $80k</p>
-          </div>
-          <button className='selection-column-button'>Start Path</button>
-        </div>
+      </div>
+      <div id="button-wrapper">
+        <button id="Button-home"><h3>Get Started</h3></button>
       </div>
     </>
   );

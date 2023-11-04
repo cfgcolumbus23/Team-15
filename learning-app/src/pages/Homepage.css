@@ -17,13 +17,13 @@ h2 {
 }
 
 
-.selection {
+.homepage {
   text-align: center;
   padding: 20px;
 }
 
 
-.selection-container {
+.homepage-container {
   display: flex;
   flex-direction: column; /* Change to stack vertically */
   align-items: center; /* Center content horizontally */
@@ -31,15 +31,29 @@ h2 {
 }
 
 
-.selection-column {
+.homepage-column {
   background-color: #d2d2d2; /* Darker background color */
   border-radius: 10px;
   padding: 20px;
-  width: 95%; /* Adjust width for the desired stacking behavior */
+  width: 40%; /* Adjust width for the desired stacking behavior */
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   margin: 10px 0; /* Add vertical margin between columns */
 }
 
+#button-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#Button-home {
+  width: 40%;
+  background-color: greenyellow;
+  border-radius: 16px;
+  height: 80px;
+  size: 36px;
+  align-items: center;
+}
 
 .selection-column-title {
   text-align: center;
