@@ -96,7 +96,7 @@ function LoginForm() {
     <form className="login-form" onSubmit={handleSubmit}>
       <h2>Login</h2>
       {error && <p className="error-message">{error}</p>} {/* Display error message */}
-      {UsernameInput(login, setLogin)}
+      {EmailInput(login, setLogin)}
       {PasswordInput(login, setLogin)}
       <button type="submit">Login</button>
     </form>
@@ -104,21 +104,7 @@ function LoginForm() {
       <button>Don't have an account? Sign up here</button>
     </Link>
   </div>
-);
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        {EmailInput(login, setLogin)}
-        {PasswordInput(login, setLogin)}
-        <button type="submit">Login</button>
-      </form>
-
-      {/* //Might Change later */}
-      <Link to="/SignUp">
-        <button>Sign Up</button>
-      </Link>
-    </div>
-  );
-}
+)};
 
 //Needs to add a submit button
 //Needs to add a "dont have a account yet? sign up here button that directs to the sign up page"
@@ -130,5 +116,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;
