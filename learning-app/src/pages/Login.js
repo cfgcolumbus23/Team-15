@@ -1,4 +1,5 @@
 import "./Login.css";
+var loggedIn = false;
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -104,11 +105,8 @@ function LoginForm() {
 )};
 
 function Login() {
-  return (
-    <div>
-      <h1> {LoginForm()}</h1>
-    </div>
-  );
+
+  return <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />;
 }
 
 export default Login;
