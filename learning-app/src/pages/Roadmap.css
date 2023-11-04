@@ -7,13 +7,45 @@
     border-radius: 16px;
 }
 
-.module {
+.module-card {
     display: flex;
+    justify-content: space-between;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 16px;
     background-color: lightblue;
     min-width: 300px;
+}
+
+.module-card-text {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+
+.module-card-icon {
+    display: flex;
+    min-width: 80px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#module-card-icon-check {
+    color: green;
+}
+
+#module-card-icon-box {
+    color: black
+}
+
+h3 {
+    margin: 0px;
+}
+
+p {
+    margin: 0px;
 }
 
 @media only screen and (max-width: 600px) {
