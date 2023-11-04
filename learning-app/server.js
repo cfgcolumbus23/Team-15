@@ -1,40 +1,26 @@
-const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
-const bodyParser = require('body-parser');
 
-const app = express();
-const port = 3000;
-const url = "mongodb+srv://alekseinech77:vQeq7uS22Kvto60V@ac-kfczevx-shard-00-00.tvt8xx1.mongodb.net/test?retryWrites=true&w=majority";
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://alekseisnech77:vQeq7uS22Kvto60V@cluster0.tvt8xx1.mongodb.net/?retryWrites=true&w=majority";
 
-
-
-const dbName = 'Cluster0';
-const client = new MongoClient(url);
-
-app.use(bodyParser.json());
-
-MongoClient.connect(url, (err, client) => {
-    if (err) {
-        console.error('Failed to connect to MongoDB', err);
-        process.exit(1); // Exit the process with an error code
-    }
-  
-    console.log('Connected successfully to MongoDB');
-    const db = client.db(dbName);
-    const collection = db.collection('users');
-
-    app.post('/register', (req, res) => {
-        collection.insertOne({str: "name"}, (err, result) => {
-            if (err) {
-                console.error('Error registering new user', err);
-                res.status(500).send('Error registering new user');
-            } else {
-                res.status(201).send('User registered');
-            }
-        });
-    });
-
-    app.listen(port, () => {
-        console.log(`Server running at http://localhost:${port}/`);
-    });
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
 });
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
