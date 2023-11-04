@@ -1,10 +1,23 @@
 import "./SignUp.css";
 import React from "react";
 import { useState } from "react";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
 //Call the backend to authenticate the login information
 //have it return a success or failure
+const auth = getAuth();
+createUserWithEmailAndPassword(auth, profileData.email, profileData.password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
 function SendProfileDataToDataBase() {
   console.log("Sent");
   return true;
@@ -18,22 +31,6 @@ function HandleResult(success) {
     //display an error message
     console.log("Failure");
   }
-}
-
-function CreateUsername(profileData, setProfileData) {
-  return (
-    <label>
-      Username:
-      <input
-        type="text"
-        className="inputBox"
-        value={profileData.username}
-        onChange={(e) =>
-          setProfileData({ ...profileData, username: e.target.value })
-        }
-      />
-    </label>
-  );
 }
 
 //double verify password
@@ -178,7 +175,6 @@ function ClearInputBoxes(setProfileData) {
   return setProfileData({
     firstName: "",
     lastName: "",
-    username: "",
     password: "",
     verifyPassword: "",
     age: "",
@@ -193,7 +189,6 @@ function SignUpForm() {
   const [profileData, setProfileData] = useState({
     firstName: "",
     lastName: "",
-    username: "",
     password: "",
     verifyPassword: "",
     age: "",
@@ -221,7 +216,6 @@ function SignUpForm() {
         {EnterEmail(profileData, setProfileData)}
         {EnterPhoneNumber(profileData, setProfileData)}
         {EnterDateOfBirth(profileData, setProfileData)}
-        {CreateUsername(profileData, setProfileData)}
         {CreateValidPassword(profileData, setProfileData)}
         <button type="submit">Create Account</button>
       </form>
