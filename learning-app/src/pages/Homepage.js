@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
 import "./Homepage.css";
 
 
@@ -57,9 +58,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Link to='/Signup'>
       <div id="button-wrapper">
         <button id="Button-home"><h3>Get Started</h3></button>
       </div>
+      </Link>
       </div>
     </>
   );
