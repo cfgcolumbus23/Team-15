@@ -7,8 +7,8 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 //Call the backend to authenticate the login information
 //have it return a success or failure
 const auth = getAuth();
-createUserWithEmailAndPassword(auth, profileData.email, profileData.password)
-  .then((userCredential) => {
+function SendProfileDataToDataBase(profileData) {
+  createUserWithEmailAndPassword(auth, profileData.email, profileData.password).then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
     // ...
@@ -18,7 +18,6 @@ createUserWithEmailAndPassword(auth, profileData.email, profileData.password)
     const errorMessage = error.message;
     // ..
   });
-function SendProfileDataToDataBase() {
   console.log("Sent");
   return true;
 }
@@ -202,7 +201,7 @@ function SignUpForm() {
   //Clears the input boxes
   const handleSubmit = (e) => {
     e.preventDefault();
-    const success = SendProfileDataToDataBase();
+    const success = SendProfileDataToDataBase(profileData);
     HandleResult(success);
     ClearInputBoxes(setProfileData);
   };
