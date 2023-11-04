@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <h1>Ctrl+R</h1>
-      <a href="./RoadMap.js">
+      <a href="./Roadmap">
         <button class="button">Get Started</button>
         <Link to="/SignUp">Temp Sign Up screen</Link>
       </a>
