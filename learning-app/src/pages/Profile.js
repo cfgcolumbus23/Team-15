@@ -1,4 +1,5 @@
 import React from 'react';
+import './Profile.css';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -8,18 +9,19 @@ class Profile extends React.Component {
       lastName: 'Doe',
       age: 30,
       email: 'john.doe@example.com',
-      phoneNumber: '123-456-7890'
+      phoneNumber: '123-456-7890',
+      points: 1500, // hard-coded points
     };
   }
 
   render() {
     return (
-      <div>
-        <h1>Profile</h1>
+      <div className="profile-container">
         <h1>{this.state.firstName} {this.state.lastName}</h1>
         <p>Age: {this.state.age}</p>
         <p>Email: {this.state.email}</p>
         <p>Phone: {this.state.phoneNumber}</p>
+        <p>Points: {this.state.points}</p>
       </div>
     );
   }
