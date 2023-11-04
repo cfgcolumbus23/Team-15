@@ -236,7 +236,7 @@ function SignUpForm() {
   const navigate = useNavigate();
   function HandleResult(success, navigate) {
     if (success) {
-      navigate("/roadmap");
+      navigate("/Selection");
     } else {
       //display an error message
       console.log("Failure");

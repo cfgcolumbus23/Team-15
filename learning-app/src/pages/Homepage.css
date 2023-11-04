@@ -56,25 +56,25 @@ h2 {
   align-items: center;
 }
 
-.selection-column-title {
+.homepage-column-title {
   text-align: center;
   color: #333;
 }
 
 
-.selection-column-desc {
+.homepage-column-desc {
   color: #3c3c3c;
   margin: 20px 0;
 }
 
 
-.selection-column-career {
+.homepage-column-career {
   color: #333333;
   margin: 20px 0;
 }
 
 
-.selection-column-button {
+.homepage-column-button {
   display: block;
   width: 100%;
   padding: 10px;
@@ -89,14 +89,12 @@ h2 {
 }
 
 
-.selection-column-button:hover {
+.homepage-column-button:hover {
   background-color: #0056b3;
 }
 
 @media (max-width: 600px) {
-  .homepage-container {
-    width: 80%;
-  }
+
   
   .homepage-column {
     width: 80%;
