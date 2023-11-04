@@ -1,4 +1,4 @@
-ProgressBar .barlabel{
-    position:fixed;
-    bottom:0;
+.module {
+    display: flex;
+    padding: 50px;
 }

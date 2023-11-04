@@ -51,9 +51,8 @@ function Roadmap() {
     }
     return(
         <div>
+            {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}>{item.moduleName}</div>)}
             {content}
-            {data.Path1?.map((item)=><p>{item.moduleName}</p>)}
-            <RewardBar />
         </div>
     );
 };
