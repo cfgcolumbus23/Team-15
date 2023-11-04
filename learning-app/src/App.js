@@ -11,10 +11,9 @@ import Selection from "./pages/Selection";
 import Mycourses from "./pages/Mycourses";
 
 import Assessment from "./pages/Assessment";
+import Admin from "./pages/Admin";
+
 function App() {
-  // useEffect(()=>{
-  //   createNote()
-  // })
   return (
     <Router>
       <Navbar />
@@ -26,6 +25,7 @@ function App() {
         <Route path="/selection" element={<Selection />} />
         <Route path="/Mycourses" element={<Mycourses />} />
         <Route path="/assessment" element={<Assessment />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   );
