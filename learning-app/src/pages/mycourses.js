@@ -1,5 +1,5 @@
 import React from "react";
-import "./courses.css";
+import "./mycourses.css";
 import { RewardBar } from "../components/Rewardbar/RewardbarElement";
 
 const user = {
