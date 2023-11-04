@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Nav, NavLink, NavMenu, Bars } from "./NavbarElements";
 import { Link } from "react-router-dom";
-import Logo from "./logo"; // Import the Logo component
+import Logo from "./logo"; 
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(window.innerWidth > 768);
@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <>
       <Nav>
-        <Logo /> {/* Include the Logo component here */}
+        <Logo /> 
         <Bars onClick={toggleMenu} />
         {showMenu && (
           <NavMenu>
