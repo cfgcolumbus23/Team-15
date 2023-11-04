@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
+import { RewardBar } from '../components/Rewardbar/RewardbarElement';
 import './Roadmap.css';
 
 // User information 
@@ -13,6 +14,7 @@ const user = {
 
 // Temporary 
 const isLoggedIn= true;
+
 // Page
 function Roadmap() {
     {/* Read in JSON File */}
