@@ -1,7 +1,7 @@
 {
     "Path1": [
         {"moduleName": "Initial Assessment", "reward":"10", "complete": "True"},
-        {"moduleName": "Module 1", "reward":"10", "complete": "True"},
+        {"moduleName": "Module 1", "reward":"10", "complete": "False"},
         {"moduleName": "Module 2", "reward":"10", "complete": "False"},
         {"moduleName": "Module 3", "reward":"10", "complete": "False"},
         {"moduleName": "Module 4", "reward":"10", "complete": "False"},

@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
 import { RewardBar } from '../components/Rewardbar/RewardbarElement';
+import {Link } from "react-router-dom";
 import './Assessment.css';
 
 function Assessment() {
@@ -49,10 +50,7 @@ function Assessment() {
                         </div>))}
                     </li>)}
                     </ol>
-                    <a href="./Score"><button type="check" onClick={(e)=>{
-                        e.preventDefault();
-                        console.log("onclick");
-                        }}>Submit Answers</button></a>
+                    <Link to="/Score"><button class="button">Submit Answers</button></Link>
                 </form>
             </div>
             <div id="quiz-results" className="quiz-results"></div>
