@@ -10,6 +10,8 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Selection from "./pages/Selection";
 import Assessment from "./pages/Assessment";
+import Admin from "./pages/Admin";
+
 function App() {
   // useEffect(()=>{
   //   createNote()
@@ -24,6 +26,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/selection" element={<Selection />} />
         <Route path="/assessment" element={<Assessment />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <RewardBar />
     </Router>
