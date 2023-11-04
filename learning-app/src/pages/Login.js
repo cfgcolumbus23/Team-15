@@ -12,37 +12,12 @@ function AuthenticateLoginInformation(login) {
   return signInWithEmailAndPassword(auth, login.username, login.password);
 }
 
-const switchScreenToAssessement = () => {
-  // const history = useHistory();
-
-  // useEffect(() => {
-  //   const delay = setTimeout(() => {
-  //     history.push('/new-route');
-  //   }, 3000); // Redirect after 3 seconds (3000 milliseconds)
-
-  //   return () => clearTimeout(delay); // Clear timeout on unmount or re-render
-  // }, [history]);
-
-  return <div>{/* Your component's content */}</div>;
-};
-
-function HandleResult(success) {
-  if (true) {
-    //switch to the new screen that says Success!
-    //Pull information regarding if the user completed the assessment
-    //for now assume they did not:
-  } else {
-    //display an error message
-    console.log("Failure");
-  }
-}
-
 function EmailInput(login, setLogin) {
   return (
     <div className="formInput">
       {/*Center the box and username later*/}
       <label>
-        Username:
+        Email:
         <input
           type="text"
           className="inputBox"
@@ -76,6 +51,19 @@ function LoginForm() {
     username: "",
     password: "",
   });
+  const navigate = useNavigate();
+  function HandleResult(success, navigate) {
+    if (true) {
+      navigate("/roadmap");
+
+      //switch to the new screen that says Success!
+      //Pull information regarding if the user completed the assessment
+      //for now assume they did not:
+    } else {
+      //display an error message
+      console.log("Failure");
+    }
+  }
 
   //Saves the username and password
   //Authenticates it
@@ -86,14 +74,14 @@ function LoginForm() {
     AuthenticateLoginInformation(login)
       .then((userCredential) => {
         // User is signed in
-        HandleResult(true);
+        HandleResult(true, navigate);
       })
       .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-        HandleResult(false);
+        HandleResult(false, navigate);
       });
     setLogin({ username: "", password: "" }); //clear Data
   };
