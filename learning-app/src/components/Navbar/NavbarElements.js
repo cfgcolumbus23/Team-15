@@ -12,16 +12,16 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: #111212;
+  color: #000000;
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0 0.5rem; /* Reduced padding */
   height: 100%;
   cursor: pointer;
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 1.25rem; /* Reduced font size */
   &.active {
-    color: #4d4dff;
+    color: #404040;
   }
 `;
 
@@ -50,9 +50,9 @@ export const NavMenu = styled.div`
     flex-direction: column;
     position: absolute;
     background: #689ee3;
-    top: 50px; /* Adjusted top position */
-    left: 0;
-    width: 100%;
+    top: 65px; /* Adjusted top position */
+    right: 0;
+    width: 50%;
     text-align: center;
   }
 `;

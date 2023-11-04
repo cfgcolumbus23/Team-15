@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Nav, NavLink, NavMenu, Bars } from "./NavbarElements";
 import { Link } from "react-router-dom";
+import Logo from "./logo"; // Import the Logo component
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(window.innerWidth > 768);
@@ -28,6 +29,7 @@ const Navbar = () => {
   return (
     <>
       <Nav>
+        <Logo /> {/* Include the Logo component here */}
         <Bars onClick={toggleMenu} />
         {showMenu && (
           <NavMenu>
@@ -36,6 +38,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink to="/Roadmap" activeStyle={{ color: "#4d4dff" }}>
               Roadmap
+            </NavLink>
+            <NavLink to="/Login" activeStyle={{ color: "#4d4dff" }}>
+              Login
             </NavLink>
           </NavMenu>
         )}
