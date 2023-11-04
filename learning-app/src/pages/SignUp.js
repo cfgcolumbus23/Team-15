@@ -11,12 +11,10 @@ function SendProfileDataToDataBase(profileData) {
   createUserWithEmailAndPassword(auth, profileData.email, profileData.password).then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-    // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    // ..
   });
   console.log("Sent");
   return true;
