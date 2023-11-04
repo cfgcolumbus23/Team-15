@@ -103,7 +103,7 @@ function LoginForm() {
     <div className="login-Page">
     <form className="login-form" onSubmit={handleSubmit}>
       <h2>Login</h2>
-      {error && <p className="error-message">{error}</p>} {/* Display error message */}
+      {/* {error && <p className="error-message">{error}</p>} Display error message */}
       {EmailInput(login, setLogin)}
       {PasswordInput(login, setLogin)}
       <button type="submit">Login</button>

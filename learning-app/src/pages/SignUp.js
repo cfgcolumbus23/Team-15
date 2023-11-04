@@ -1,18 +1,18 @@
 import "./SignUp.css";
 import React from "react";
 import { useState, useCallback, Link } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { database } from "../Connection";
+// import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
 import { ref, set } from "firebase/database";
 //Call the backend to authenticate the login information
 //have it return a success or failure
 function SendProfileDataToDataBase(profileData) {
-  set(ref(database, "users/" + profileData.username), {
+  set(ref(database, "users/" + profileData.email), {
     firstName: profileData.firstName,
     lastName: profileData.lastName,
-    username: profileData.username,
     password: profileData.password,
     age: profileData.age,
     birthDate: profileData.dateOfBirth,
@@ -26,9 +26,9 @@ function SendProfileDataToDataBase(profileData) {
       console.log("Error storing data:", error);
     });
   }
-const auth = getAuth();
+// const auth = getAuth();
 function SendUserDataToDataBase(profileData) {
-  createUserWithEmailAndPassword(auth, profileData.email, profileData.password).then((userCredential) => {
+  createUserWithEmailAndPassword(database, profileData.email, profileData.password).then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
   })
@@ -124,35 +124,35 @@ function AgeCalculator(dateOfBirth, setProfileData, profileData) {
 
 // function EnterAge(profileData, setProfileData) {}
 
-function EnterDateOfBirth(profileData, setProfileData) {
-  const [startDate, setStartDate] = useState(new Date());
+// function EnterDateOfBirth(profileData, setProfileData) {
+//   const [startDate, setStartDate] = useState(new Date());
 
-  return (
-    <div>
-      <label>
-        Date of Birth:
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          dateFormat="MM/dd/yyyy"
-          value={profileData.dateOfBirth}
-          // onChange={(e) =>
-          //   setProfileData({ ...profileData, dateOfBirth: e.target.value })
-          // }
-        />
-        {/* /= {AgeCalculator(startDate, setProfileData, profileData)} */}
-        {/* <input
-          type="text"
-          className="inputBox"
-          value={profileData.dateOfBirth}
-          onChange={(e) =>
-            setProfileData({ ...profileData, dateOfBirth: e.target.value })
-          }
-        /> */}
-      </label>
-    </div>
-  );
-}
+//   return (
+//     // <div>
+//     //   <label>
+//     //     Date of Birth:
+//     //     <DatePicker
+//     //       selected={startDate}
+//     //       onChange={(date) => setStartDate(date)}
+//     //       dateFormat="MM/dd/yyyy"
+//     //       value={profileData.dateOfBirth}
+//           // onChange={(e) =>
+//           //   setProfileData({ ...profileData, dateOfBirth: e.target.value })
+//           // }
+//         // />
+//         // {/* /= {AgeCalculator(startDate, setProfileData, profileData)} */}
+//         // {/* <input
+//     //       type="text"
+//     //       className="inputBox"
+//     //       value={profileData.dateOfBirth}
+//     //       onChange={(e) =>
+//     //         setProfileData({ ...profileData, dateOfBirth: e.target.value })
+//     //       }
+//     //     /> */}
+//     //   </label>
+//     // </div>
+//   );
+// }
 
 function EnterEmail(profileData, setProfileData) {
   return (
@@ -235,8 +235,8 @@ function SignUpForm() {
         {EnterLastName(profileData, setProfileData)}
         {EnterEmail(profileData, setProfileData)}
         {EnterPhoneNumber(profileData, setProfileData)}
-        {EnterDateOfBirth(profileData, setProfileData)}
-        {CreateUsername(profileData, setProfileData)}
+        {/* {EnterDateOfBirth(profileData, setProfileData)} */}
+        {/* {CreateUsername(profileData, setProfileData)} */}
         {CreatePassword(profileData, setProfileData)}
         <button type="submit">Create Account</button>
       </form>
