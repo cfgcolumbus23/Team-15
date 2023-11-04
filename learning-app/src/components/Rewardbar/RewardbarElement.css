@@ -1,0 +1,32 @@
+.barlabel{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin:2%;
+}
+.barlabel p {
+    transform: rotate(-45deg);
+    font-size: small;
+}
+
+.rewarddiv{
+    background-color: #ffffff;
+    bottom:0;
+    position:fixed;
+    left:0;
+    right:0;
+    padding:20px;
+}
+
+#xbutton{
+    position:fixed;
+    bottom:0;
+    right:0;
+    z-index: 2;
+    size: 10px;
+}
+
+#xbutton:hover{
+    background-color: #b5bab5;
+}
