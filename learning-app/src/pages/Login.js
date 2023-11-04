@@ -1,30 +1,60 @@
 import "./Login.css";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../Connections";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import React from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
+import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
+import { useHistory } from "react-router-dom";
 
+//Call the backend to authenticate the login information
+//have it return a success or failure
 function AuthenticateLoginInformation(login) {
-  return signInWithEmailAndPassword(auth, login.email, login.password);
+  return signInWithEmailAndPassword(auth, login.username, login.password);
 }
 
-function EmailInput({ login, setLogin }) {
+const switchScreenToAssessement = () => {
+  // const history = useHistory();
+
+  // useEffect(() => {
+  //   const delay = setTimeout(() => {
+  //     history.push('/new-route');
+  //   }, 3000); // Redirect after 3 seconds (3000 milliseconds)
+
+  //   return () => clearTimeout(delay); // Clear timeout on unmount or re-render
+  // }, [history]);
+
+  return <div>{/* Your component's content */}</div>;
+};
+
+function HandleResult(success) {
+  if (true) {
+    //switch to the new screen that says Success!
+    //Pull information regarding if the user completed the assessment
+    //for now assume they did not:
+  } else {
+    //display an error message
+    console.log("Failure");
+  }
+}
+
+function UsernameInput(login, setLogin) {
   return (
     <div className="formInput">
+      {/*Center the box and username later*/}
       <label>
-        Email:
+        Username:
         <input
           type="text"
           className="inputBox"
-          value={login.email}
-          onChange={(e) => setLogin({ ...login, email: e.target.value })}
+          value={login.username}
+          onChange={(e) => setLogin({ ...login, username: e.target.value })}
         />
       </label>
     </div>
   );
 }
 
-function PasswordInput({ login, setLogin }) {
+function PasswordInput(login, setLogin) {
   return (
     <div className="formInput">
       <label>
@@ -40,70 +70,61 @@ function PasswordInput({ login, setLogin }) {
   );
 }
 
+//Store the username and password
 function LoginForm() {
   const [login, setLogin] = useState({
-    email: "",
+    username: "",
     password: "",
   });
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
 
-  function handleResult(success, errorMessage = "") {
-    if (true) {
-      navigate('/roadmap'); // Navigate to the roadmap page if login is successful
-    } else {
-      console.log("Failure", errorMessage);
-      setError(errorMessage); // Set the error message state to display the error
-    }
-  }
-
+  //Saves the username and password
+  //Authenticates it
+  //Clears the input boxes
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(login);
     AuthenticateLoginInformation(login)
-      .then(() => {
-        handleResult(true);
+      .then((userCredential) => {
+        // User is signed in
+        HandleResult(true);
       })
       .catch((error) => {
+        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        handleResult(false, errorMessage);
+        console.log(errorCode, errorMessage);
+        HandleResult(false);
       });
-    setLogin({ email: "", password: "" }); // Clear login state
+    setLogin({ username: "", password: "" }); //clear Data
   };
 
+  // clean up later into smaller functions
   return (
     <div className="login-Page">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
-        {error && <p className="error-message">{error}</p>}
-        <EmailInput login={login} setLogin={setLogin} />
-        <PasswordInput login={login} setLogin={setLogin} />
+        {UsernameInput(login, setLogin)}
+        {PasswordInput(login, setLogin)}
         <button type="submit">Login</button>
-        <Link to="/SignUp">
-          <button type="button">Don't have an account? Sign up here</button>
-        </Link>
       </form>
+
+      {/* //Might Change later */}
+      <Link to="/SignUp">
+        <button>Sign Up</button>
+      </Link>
     </div>
   );
 }
-    <form className="login-form" onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      {error && <p className="error-message">{error}</p>} {/* Display error message */}
-      {EmailInput(login, setLogin)}
-      {PasswordInput(login, setLogin)}
-      <button type="submit">Login</button>
-    </form>
-    <Link to="/SignUp">
-      <button>Don't have an account? Sign up here</button>
-    </Link>
-  </div>
-)};
+
+//Needs to add a submit button
+//Needs to add a "dont have a account yet? sign up here button that directs to the sign up page"
 
 function Login() {
   return (
     <div>
-      <h1><LoginForm /></h1>
+      <h1> {LoginForm()}</h1>
     </div>
   );
 }
+
 export default Login;
