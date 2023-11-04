@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import "./Homepage.css";
 
+
 const navigation = [
   { name: 'Homepage', href: './', current: true },
   { name: 'Roadmap', href: './Roadmap', current: false },
 ];
+
 
 const user = {
   name: 'Tom Cook',
@@ -14,14 +16,17 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
 
+
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' },
 ];
 
+
 export default function Home() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(true);
+
 
   return (
     <>
@@ -93,3 +98,7 @@ export default function Home() {
     </>
   );
 }
+
+
+
+
