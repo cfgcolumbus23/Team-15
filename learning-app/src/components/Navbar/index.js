@@ -37,6 +37,9 @@ const Navbar = () => {
             <NavLink to="/Roadmap" activeStyle={{ color: "#4d4dff" }}>
               Roadmap
             </NavLink>
+            <NavLink to="/Login" activeStyle={{ color: "#4d4dff" }}>
+              Login
+            </NavLink>
           </NavMenu>
         )}
       </Nav>
