@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
-import './selection.css';
+import { Nav } from '../components/Navbar/NavbarElements';
+import './Selection.css';
 
 function Selection() {
 
@@ -49,6 +50,12 @@ function Selection() {
                         computer software, hardware, and network issues.
                     </p>
                 </div>
+                <div className='selection-column-career'>
+                    <h3>Career Info:</h3>
+                    <p>Helpdesk Technicians - $50k</p>
+                    <p>Support Analysts - $60k</p>
+                </div>
+                <button className='selection-column-button'>Start Path</button>
             </div>
             <div id='selection-column-2' className='selection-column'>
                 <div className='selection-column-title'>
@@ -56,13 +63,19 @@ function Selection() {
                 </div>
                 <div className='selection-column-desc'>
                     <p>
-                        The IT Security Path is designed to equip learners with a
+                        The Cybersecurity Path is designed to equip learners with a
                         robust understanding of information technology security
                         principles. This path covers a broad spectrum of IT
                         security aspects, including network security, data
                         protection, and compliance standards.  
                     </p>
                 </div>
+                <div className='selection-column-career'>
+                    <h3>Career Info:</h3>
+                    <p>Security Analyst - $70k</p>
+                    <p>Penetration Tester - $80k</p>
+                </div>
+                <button className='selection-column-button'>Start Path</button>
             </div>
             <div id='selection-column-3' className='selection-column'>
                 <div className='selection-column-title'>
@@ -76,6 +89,12 @@ function Selection() {
                     needed to develop dynamic and responsive websites.
                     </p>
                 </div>
+                <div className='selection-column-career'>
+                    <h3>Career Info:</h3>
+                    <p>Front-End Developer - $80k</p>
+                    <p>Back-End Developer - $80k</p>
+                </div>
+                <button className='selection-column-button'>Start Path</button>
             </div>
         </div>
         </>

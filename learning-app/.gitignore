@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 src/connection.js
+src/Connection.js
 # testing
 /coverage
 
