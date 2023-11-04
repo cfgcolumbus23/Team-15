@@ -15,6 +15,8 @@ import Score from "./pages/Score";
 import Mycourses from "./pages/mycourses";
 import Profile from "./pages/Profile";
 import Footer from "./components/Footer/Footer";
+import Calendar from "./pages/Calendar";
+
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/score" element={<Score />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/Calendar" element={<Calendar />} />
       </Routes>
       <Footer />
     </Router>

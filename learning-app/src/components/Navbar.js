@@ -14,7 +14,8 @@ const navigation = [
   { name: "Roadmap", href: "./Roadmap", current: false },
   { name: "My Courses", href: "./mycourses", current: false },
   { name: "Track Selection", href: "./selection", current: false },
-  { name: "Your Profile", href: "./Profile", current: false },
+  { name: "Calendar", href: "./Calendar", current: false },
+  { name: "Profile", href: "./Profile", current: false },
   { name: "Login", href: "./Login", current: false },
 ];
 
