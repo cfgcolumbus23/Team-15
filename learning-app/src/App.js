@@ -12,6 +12,7 @@ import Mycourses from "./pages/Mycourses";
 
 import Assessment from "./pages/Assessment";
 import Admin from "./pages/Admin";
+import Score from "./pages/Score";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Mycourses" element={<Mycourses />} />
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/score" element={<Score />} />
       </Routes>
     </Router>
   );

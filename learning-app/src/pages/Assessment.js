@@ -44,15 +44,15 @@ function Assessment() {
                         <h3>{item[0]}</h3>
                         {item[1].map((option, optionIndex)=> (
                         <div key={`q${index}${optionIndex}`}>
-                            <input type="radio" name={`question${index}`} id={`q${index}a`} value={option} />
+                            <input type="radio" name={`question${index}`} id={`q${index}${optionIndex}`} value={option} onclick="alert('hello');"/>
                             <label htmlFor={`q${index}${optionIndex}`}>{option}</label>
                         </div>))}
                     </li>)}
                     </ol>
-                    <button type="check" onClick={(e)=>{
+                    <a href="./Score"><button type="check" onClick={(e)=>{
                         e.preventDefault();
                         console.log("onclick");
-                        }}>Check Answers</button>
+                        }}>Submit Answers</button></a>
                 </form>
             </div>
             <div id="quiz-results" className="quiz-results"></div>
