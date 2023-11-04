@@ -2,11 +2,13 @@ import "./Login.css";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
+import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
+
 //Call the backend to authenticate the login information
 //have it return a success or failure
-function AuthenticateLoginInformation() {
-  console.log("Submitted");
-  return true;
+function AuthenticateLoginInformation(login) {
+  return signInWithEmailAndPassword(auth, login.username, login.password);
 }
 
 function HandleResult(success) {
@@ -64,10 +66,19 @@ function LoginForm() {
   //Clears the input boxes
   const handleSubmit = (e) => {
     e.preventDefault();
-    //login([...login, { username: login.username, password: login.password }]); //store the information
     console.log(login);
-    const success = AuthenticateLoginInformation();
-    HandleResult(success);
+    AuthenticateLoginInformation(login)
+      .then((userCredential) => {
+        // User is signed in
+        HandleResult(true);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        HandleResult(false);
+      });
     setLogin({ username: "", password: "" }); //clear Data
   };
 
