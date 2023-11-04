@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
 import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 //Call the backend to authenticate the login information
 //have it return a success or failure
@@ -100,18 +100,22 @@ function LoginForm() {
   // clean up later into smaller functions
   return (
     <div className="login-Page">
-    <form className="login-form" onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      {/* {error && <p className="error-message">{error}</p>} Display error message */}
-      {EmailInput(login, setLogin)}
-      {PasswordInput(login, setLogin)}
-      <button type="submit">Login</button>
-    </form>
-    <Link to="/SignUp">
-      <button>Don't have an account? Sign up here</button>
-    </Link>
-  </div>
-)};
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h1>Login</h1>
+        {/* {error && <p className="error-message">{error}</p>} Display error message */}
+        {EmailInput(login, setLogin)}
+        {PasswordInput(login, setLogin)}
+        <button className="Button" type="submit">
+          Login
+        </button>
+        <p className="subText">Don't have an account?</p>
+        <Link to="/SignUp">
+          <button className="Button">Sign up here</button>
+        </Link>
+      </form>
+    </div>
+  );
+}
 
 function Login() {
   return (
