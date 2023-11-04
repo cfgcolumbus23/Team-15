@@ -14,7 +14,8 @@ const navigation = [
   { name: "Roadmap", href: "./Roadmap", current: false },
   { name: "My Courses", href: "./mycourses", current: false },
   { name: "Track Selection", href: "./selection", current: false },
-  { name: "Your Profile", href: "./Profile", current: false },
+  { name: "Calendar", href: "./Calendar", current: false },
+  { name: "Profile", href: "./Profile", current: false },
   { name: "Login", href: "./Login", current: false },
 ];
 
@@ -44,7 +45,7 @@ export default function Home() {
   }, [location]);
 
   return (
-    <Disclosure as="nav" className="bg-gray-600 ">
+    <Disclosure as="nav" className="bg-pink-400">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

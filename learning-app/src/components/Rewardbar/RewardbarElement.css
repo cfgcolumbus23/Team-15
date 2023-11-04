@@ -3,11 +3,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin:2%;
+    margin:2.25%;
 }
 .barlabel p {
-    transform: rotate(-45deg);
+    transform: rotate(0deg);
     font-size: small;
+    margin-top: 2px;
 }
 
 .rewarddiv{
@@ -16,7 +17,15 @@
     position:fixed;
     left:0;
     right:0;
-    padding:20px;
+    padding:10px;
+}
+
+.barlabel p {
+    margin: 0px;
+}
+
+.barlabel {
+    margin: 1%;
 }
 
 #xbutton{

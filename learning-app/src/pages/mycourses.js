@@ -46,7 +46,7 @@ function UserCourses() {
 // Page
 function Mycourses(){
     return (
-        <div>
+        <div classname = "classes">
             <UserCourses />
             <RewardBar />
         </div>
