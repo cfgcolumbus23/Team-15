@@ -7,11 +7,10 @@ import Roadmap from "./pages/Roadmap";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Selection from "./pages/Selection";
-import Mycourses from "./pages/Mycourses";
-
 import Assessment from "./pages/Assessment";
 import Admin from "./pages/Admin";
 import Score from "./pages/Score";
+import Mycourses from "./pages/Mycourses";
 
 function App() {
   return (
