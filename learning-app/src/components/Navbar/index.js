@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Nav, NavLink, NavMenu, Bars, DropdownContainer } from "./NavbarElements";
-import { Link } from "react-router-dom";
 import Logo from "./logo"; 
 import { FaClock } from 'react-icons/fa';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(window.innerWidth > 768);
