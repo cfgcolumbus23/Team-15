@@ -17,6 +17,7 @@
     width: 33%;
     background-color: beige;
     border-radius: 16px;
+    text-align: center;
 }
 
 .selection-column-title {
@@ -37,6 +38,15 @@
     margin: 10px;
     border-radius: 15px;
     background-color: lightblue;
+}
+
+.selection-column-button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    border-color: greenyellow;
+    box-shadow: none;
+    background-color: greenyellow;
 }
 
 @media (max-width: 768px) {
