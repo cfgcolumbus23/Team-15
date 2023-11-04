@@ -55,44 +55,11 @@
   display: block;
 }
 
-.inputBoxPhoneNumber {
+.inputBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   width: 300px;
-  padding: 0.5rem;
-  border: 1px solid #020617;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  outline: #020617;
-}
-.inputBoxFirstName {
-  width: 300px;
-
-  padding: 0.5rem;
-  border: 1px solid #020617;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  outline: #020617;
-}
-
-.inputBoxLastName {
-  width: 300px;
-  padding: 0.5rem;
-  border: 1px solid #020617;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  outline: #020617;
-}
-
-.inputBoxPassword {
-  width: 300px;
-  padding: 0.5rem;
-  border: 1px solid #020617;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  outline: #020617;
-}
-.inputBoxEmail {
-  width: 300px;
-  padding-left: 700px;
   padding: 0.5rem;
   border: 1px solid #020617;
   border-radius: 0.375rem;

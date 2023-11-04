@@ -45,7 +45,7 @@ function EmailInput(login, setLogin) {
         Username:
         <input
           type="text"
-          className="inputBox"
+          className="inputBoxLogin"
           value={login.username}
           onChange={(e) => setLogin({ ...login, username: e.target.value })}
         />
@@ -61,7 +61,7 @@ function PasswordInput(login, setLogin) {
         Password:
         <input
           type="password"
-          className="inputBox"
+          className="inputBoxLogin"
           value={login.password}
           onChange={(e) => setLogin({ ...login, password: e.target.value })}
         />

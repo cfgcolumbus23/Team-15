@@ -61,7 +61,7 @@ function CreatePassword(profileData, setProfileData) {
         Password:
         <input
           type="password"
-          className="inputBoxPassword"
+          className="inputBox"
           value={profileData.password}
           onChange={(e) =>
             setProfileData({ ...profileData, password: e.target.value })
@@ -79,7 +79,7 @@ function EnterFirstName(profileData, setProfileData) {
         First Name:
         <input
           type="text"
-          className="inputBoxFirstName"
+          className="inputBox"
           value={profileData.firstName}
           onChange={(e) =>
             setProfileData({ ...profileData, firstName: e.target.value })
@@ -97,7 +97,7 @@ function EnterLastName(profileData, setProfileData) {
         Last Name:
         <input
           type="text"
-          className="inputBoxLastName"
+          className="inputBox"
           value={profileData.lastName}
           onChange={(e) =>
             setProfileData({ ...profileData, lastName: e.target.value })
@@ -166,7 +166,7 @@ function EnterEmail(profileData, setProfileData) {
         Email:
         <input
           type="text"
-          className="inputBoxEmail"
+          className="inputBox"
           value={profileData.email}
           onChange={(e) =>
             setProfileData({ ...profileData, email: e.target.value })
@@ -184,7 +184,7 @@ function EnterPhoneNumber(profileData, setProfileData) {
         Phone Number:
         <input
           type="text"
-          className="inputBoxPhoneNumber"
+          className="inputBox"
           value={profileData.phoneNumber}
           onChange={(e) =>
             setProfileData({ ...profileData, phoneNumber: e.target.value })
