@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp";
 import Selection from "./pages/Selection";
 import Assessment from "./pages/Assessment";
 import Admin from "./pages/Admin";
+import Score from "./pages/Score";
 
 function App() {
   // useEffect(()=>{
@@ -27,6 +28,7 @@ function App() {
         <Route path="/selection" element={<Selection />} />
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/score" element={<Score />} />
       </Routes>
       <RewardBar />
     </Router>
