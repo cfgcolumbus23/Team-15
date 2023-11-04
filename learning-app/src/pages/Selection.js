@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
-import './Roadmap.css';
+import './Selection.css';
 
 function Selection() {
 
@@ -35,6 +35,14 @@ function Selection() {
         <>
         <div className='selection'>
             <h2>Select a Path</h2>
+        </div>
+        <div className='selection-container'>
+            <div id='selection-column-1' className='selection-column'>
+            </div>
+            <div id='selection-column-2' className='selection-column'>
+            </div>
+            <div id='selection-column-3' className='selection-column'>
+            </div>
         </div>
         </>
     );
