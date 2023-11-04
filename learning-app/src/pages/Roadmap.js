@@ -50,8 +50,8 @@ function Roadmap() {
         content = <Main_Roadmap />;
     }
     return(
-        <div>
-            {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}>{item.moduleName}</div>)}
+        <div class="module-container">
+            {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}><p>{item.moduleName}</p> <p>Reward: ${item.reward}</p></div>)}
             {content}
         </div>
     );
