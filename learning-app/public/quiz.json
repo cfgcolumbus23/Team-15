@@ -1,0 +1,82 @@
+[
+    [
+        "Which of the following is an example of an input device?",
+        [
+            "Printer",
+            "Speaker",
+            "Microphone",
+            "Monitor"]
+    ],
+    [
+        "What is the primary function of the operating system (OS) on a computer?",
+        [
+            "To provide security against viruses",
+            "To manage the computer's hardware and software resources",
+            "To run office productivity software",
+            "To design graphics and visual elements"]
+    ],
+    [
+        "What does 'RAM' stand for?",
+        [
+            "Readily Accessed Mailer",
+            "Random Access Memory",
+            "Rapid Action Mechanism",
+            "Remote Authorization Mechanism"]
+        ],
+    [
+        "Which of the following is NOT an operating system?",
+        [
+            "Linux",
+            "Microsoft Word",
+            "MacOS",
+            "Android"]
+        ],
+    [
+        "What is the main purpose of a web browser?",
+        [
+            "To store files and documents",
+            "To access and navigate the internet",
+            "To send and receive emails",
+            "To create spreadsheets"]
+        ],
+    [
+        "Which of the following devices is considered a peripheral?",
+        [
+            "Central Processing Unit (CPU)",
+            "Mouse",
+            "Hard Drive",
+            "Motherboard"]
+        ],
+    [
+        "What is 'phishing'?",
+        [
+            "A process to remove viruses from a computer",
+            "An attempt to acquire sensitive information by pretending to be a trustworthy entity",
+            "Fishing for information on the internet",
+            "A term used for setting up a new network"]
+        ],
+    [
+        "Which file format is commonly used for images?",
+        [
+            ".exe",
+            ".txt",
+            ".mp3",
+            ".jpg"]
+        ],
+    [
+        "What does the shortcut 'Ctrl + C' commonly do in most Windows applications?",
+        [
+            "Cut",
+            "Copy",
+            "Paste",
+            "Close"]
+        ],
+    [
+        "What is the cloud in computing?",
+        [
+            "A collection of computers connected to a network",
+            "Online storage service that allows you to access data from any device",
+            "A weather forecasting model on the computer",
+            "A virtual reality space for gaming"]
+        ]
+]

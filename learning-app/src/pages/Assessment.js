@@ -9,7 +9,7 @@ function Assessment() {
 
     const [data,setData]=useState([]);
     const getData=()=>{
-        fetch('mock.json'
+        fetch('quiz.json'
         ,{
         headers : { 
             'Content-Type': 'application/json',
@@ -31,47 +31,32 @@ function Assessment() {
     },[])
 
     {/* Process Data into Content HTML blocks */}
-    
+
+
+
     return (
-        <div class="quiz-container">
-            <h1>Quiz Title</h1>
-            <div class="quiz-questions">
+        <div className="quiz-container">
+            <h1>Initial Assessment</h1>
+            <div className="quiz-questions">
                 <form>
                     <ol>
-                        <li>
-                            <h3>Question 1</h3>
-                            <div>
-                                <input type="radio" name="question1" id="q1a" value="a" />
-                                <label for="q1a">Option A</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="question1" id="q1b" value="b" />
-                                <label for="q1b">Option B</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="question1" id="q1c" value="c" />
-                                <label for="q1c">Option C</label>
-                            </div>
-                        </li>
-                        <li>
-                            <h3>Question 2</h3>
-                            <div>
-                                <input type="radio" name="question2" id="q2a" value="a" />
-                                <label for="q2a">Option A</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="question2" id="q2b" value="b" />
-                                <label for="q2b">Option B</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="question2" id="q2c" value="c" />
-                                <label for="q2c">Option C</label>
-                            </div>
-                        </li>
+                    {data.map((item, index)=><li key={`q${index}`} className="quiz-q" id={`q${index}`}>
+                        <h3>{item[0]}</h3>
+                        {item[1].map((option, optionIndex)=> (
+                        <div key={`q${index}${optionIndex}`}>
+                            <input type="radio" name={`question${index}`} id={`q${index}a`} value={option} />
+                            <label htmlFor={`q${index}${optionIndex}`}>{option}</label>
+                        </div>))}
+                    </li>)}
                     </ol>
-                    <button type="submit">Submit Answers</button>
+                    <button type="check" onClick={(e)=>{
+                        e.preventDefault();
+                        console.log("onclick");
+                        }}>Check Answers</button>
                 </form>
             </div>
+            <div id="quiz-results" className="quiz-results"></div>
+            <div className="spacer"></div>
         </div>
     );
 }
