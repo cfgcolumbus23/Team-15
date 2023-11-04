@@ -42,7 +42,7 @@ function EmailInput(login, setLogin) {
     <div className="formInput">
       {/*Center the box and username later*/}
       <label>
-        Username:
+        Email:
         <input
           type="text"
           className="inputBoxLogin"
