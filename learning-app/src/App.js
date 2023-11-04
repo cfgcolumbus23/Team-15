@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -19,11 +20,21 @@ import AuthDetails from "./components/auth/AuthDetails";
 function App() {
   return (
     <Router>
+      <Navbar />
+      <AuthDetails />
       <Routes>
         <Route path="/" element={<Home />}/>  
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/selection" element={<Selection />} />
+        <Route path="/Mycourses" element={<Mycourses />} />
+        <Route path="/assessment" element={<Assessment />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/score" element={<Score />} />
+        <Route path="/Profile" element={<Profile />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
