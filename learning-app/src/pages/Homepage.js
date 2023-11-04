@@ -30,7 +30,6 @@ export default function Home() {
 
   return (
     <>
-      <Navbar navigation={navigation} user={user} userNavigation={userNavigation} isUserLoggedIn={isUserLoggedIn} />
       <div className='selection'>
         <h1>Select a Path</h1>
       </div>
