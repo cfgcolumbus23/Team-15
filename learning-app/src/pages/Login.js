@@ -7,7 +7,6 @@ import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the imp
 import { useNavigate } from "react-router-dom";
 
 var loggedIn = false;
-
 //Call the backend to authenticate the login information
 //have it return a success or failure
 function AuthenticateLoginInformation(login) {

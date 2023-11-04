@@ -5,22 +5,27 @@ import { useState, useCallback, Link } from "react";
 // import "react-datepicker/dist/react-datepicker.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { database } from "../Connection";
-// import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
+import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
 import { ref, set } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 //Call the backend to authenticate the login information
 //have it return a success or failure
 function SendProfileDataToDataBase(profileData) {
-  set(ref(database, "users/" + profileData.username), {
-    firstName: profileData.firstName,
-    lastName: profileData.lastName,
-    username: profileData.username,
-    password: profileData.password,
-    age: profileData.age,
-    birthDate: profileData.dateOfBirth,
-    email: profileData.email,
-    phoneNumber: profileData.phoneNumber,
-  })
+  set(
+    ref(
+      database,
+      "users/" + profileData.email.substring(0, profileData.email.indexOf("@"))
+    ),
+    {
+      firstName: profileData.firstName,
+      lastName: profileData.lastName,
+      password: profileData.password,
+      age: profileData.age,
+      birthDate: profileData.dateOfBirth,
+      email: profileData.email,
+      phoneNumber: profileData.phoneNumber,
+    }
+  )
     .then(() => {
       console.log("Data has been successfully stored in the database");
     })
@@ -28,22 +33,20 @@ function SendProfileDataToDataBase(profileData) {
       console.log("Error storing data:", error);
     });
 }
+
 // const auth = getAuth();
 function SendUserDataToDataBase(profileData) {
-  createUserWithEmailAndPassword(
-    database,
-    profileData.email,
-    profileData.password
-  )
+  createUserWithEmailAndPassword(auth, profileData.email, profileData.password)
     .then((userCredential) => {
       // Signed up
-      const user = userCredential.user;
+      const currentUsername = userCredential.username;
+      console.log("Sent");
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
-  console.log("Sent");
+
   return true;
 }
 
