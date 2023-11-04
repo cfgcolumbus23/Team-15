@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin:2%;
+    margin:2.25%;
 }
 .barlabel p {
     transform: rotate(-45deg);
