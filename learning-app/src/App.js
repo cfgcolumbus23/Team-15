@@ -8,9 +8,9 @@ import Home from "./pages/Homepage";
 import Roadmap from "./pages/Roadmap";
 import Login from "./pages/Login";
 function App() {
-  useEffect(()=>{
-    createNote()
-  })
+  //useEffect(()=>{
+  //  createNote()
+  //})
   return (
     <Router>
       <Navbar />
