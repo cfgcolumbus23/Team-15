@@ -3,6 +3,10 @@ import { Nav } from '../components/Navbar/NavbarElements';
 import { RewardBar } from '../components/Rewardbar/RewardbarElement';
 import './Assessment.css';
 
+function checkAnswers() {
+    console.log("HEllo!");
+}
+
 function Assessment() {
 
     {/* Read in JSON File */}
@@ -35,34 +39,36 @@ function Assessment() {
 
 
     return (
-        <div class="quiz-container">
+        <div className="quiz-container">
             <h1>Initial Assessment</h1>
-            <div class="quiz-questions">
+            <div className="quiz-questions">
                 <form>
                     <ol>
-                    {data.map((item, index)=><li class="quiz-q" id={`q${index}`}>
+                    {data.map((item, index)=><li key={`q${index}`} className="quiz-q" id={`q${index}`}>
                         <h3>{item[0]}</h3>
                         <div>
                             <input type="radio" name="question1" id={`q${index}a`} value="a" />
-                            <label for={`q${index}a`}>{item[1][0]}</label>
+                            <label htmlFor={`q${index}a`}>{item[1][0]}</label>
                         </div>
                         <div>
                             <input type="radio" name="question1" id={`q${index}b`} value="b" />
-                            <label for={`q${index}a`}>{item[1][1]}</label>
+                            <label htmlFor={`q${index}a`}>{item[1][1]}</label>
                         </div>
                         <div>
                             <input type="radio" name="question1" id={`q${index}c`} value="c" />
-                            <label for={`q${index}a`}>{item[1][2]}</label>
+                            <label htmlFor={`q${index}a`}>{item[1][2]}</label>
                         </div>
                         <div>
                             <input type="radio" name="question1" id={`q${index}d`} value="d" />
-                            <label for={`q${index}a`}>{item[1][3]}</label>
+                            <label htmlFor={`q${index}a`}>{item[1][3]}</label>
                         </div>
                     </li>)}
                     </ol>
-                    <button type="submit">Submit Answers</button>
+                    <button type="check" onClick={checkAnswers}>Check Answers</button>
                 </form>
             </div>
+            <div className="quiz-results"></div>
+            <div className="spacer"></div>
         </div>
     );
 }
