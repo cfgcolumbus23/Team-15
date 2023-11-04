@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {

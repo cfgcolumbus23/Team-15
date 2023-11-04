@@ -1,0 +1,7 @@
+.quiz-container {
+    overflow-y: scroll;
+}
+
+.spacer {
+    height: 200px;
+}

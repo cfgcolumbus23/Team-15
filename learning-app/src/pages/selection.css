@@ -1,0 +1,63 @@
+.selection {
+    margin-top: 22px;
+    text-align: center;
+}
+
+.selection-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100px;
+    padding: 20px;
+}
+
+.selection-column {
+    flex: 1;
+    margin: 20px;
+    padding: 16px;
+    width: 33%;
+    background-color: beige;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.selection-column-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 16px;
+    text-align: center;
+}
+
+.selection-column-desc {
+    margin: 16px;
+    text-align: center;
+}
+
+.selection-column-career {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: lightblue;
+}
+
+.selection-column-button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    border-color: greenyellow;
+    box-shadow: none;
+    background-color: greenyellow;
+}
+
+@media (max-width: 768px) {
+    .selection-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .selection-column {
+        width: 100%;
+        margin: 10px;
+    }
+}
