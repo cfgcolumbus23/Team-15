@@ -100,19 +100,18 @@ function LoginForm() {
 
   return (
     <div className="login-Page">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        {error && <p className="error-message">{error}</p>}
-        <EmailInput login={login} setLogin={setLogin} />
-        <PasswordInput login={login} setLogin={setLogin} />
-        <button type="submit">Login</button>
-        <Link to="/SignUp">
-          <button type="button">Don't have an account? Sign up here</button>
-        </Link>
-      </form>
-    </div>
-  );
-}
+    <form className="login-form" onSubmit={handleSubmit}>
+      <h2>Login</h2>
+      {error && <p className="error-message">{error}</p>} {/* Display error message */}
+      {EmailInput(login, setLogin)}
+      {PasswordInput(login, setLogin)}
+      <button type="submit">Login</button>
+    </form>
+    <Link to="/SignUp">
+      <button>Don't have an account? Sign up here</button>
+    </Link>
+  </div>
+)};
 
 function Login() {
   return (
@@ -121,5 +120,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;
