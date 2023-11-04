@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .App {
   text-align: center;
 }
