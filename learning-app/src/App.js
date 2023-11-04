@@ -14,14 +14,12 @@ import Admin from "./pages/Admin";
 import Score from "./pages/Score";
 import Mycourses from "./pages/mycourses";
 import Profile from "./pages/Profile";
-import AuthDetails from "./components/auth/AuthDetails";
 import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <AuthDetails />
       <Routes>
         <Route path="/" element={<Home />}/>  
         <Route path="/roadmap" element={<Roadmap />} />
