@@ -1,13 +1,13 @@
-import React from 'react';
-import './courses.css';
-import { RewardBar } from '../components/Rewardbar/RewardbarElement';
+import React from "react";
+import "./mycourses.css";
+import { RewardBar } from "../components/Rewardbar/RewardbarElement";
 
 const user = {
     name: 'Name',
     path: 1,
     progress: 50,
     rewards: 50,
-    courses: ['IT Graduation Credits','CompTIA']
+    courses: ['IT Graduation Credits','CompTIA IT Fundamentals']
 }
 // Example Course List
 const courses = new Map([
@@ -29,18 +29,19 @@ function UserCourses() {
     );
   }
 
-// function OtherCourses(){
-//     let coursesList = [];
-//     others.forEach((index, course) => {
-//       coursesList.push(<li key={index}><a href={index}>{course}</a></li>);
+// function UserCourses() {
+//     let coursesList=[];
+//     courses.forEach((index, course) => {
+//       coursesList.push(<p key={index}><a href={index} className="text-sm font-semibold leading-6 text-gray-900">{course}</a></p>);
 //     });
   
 //     return (
-//       <div>
+//     <div className="min-w-0 flex-auto">
+//         <h2>My courses</h2>
 //         <ul>{coursesList}</ul>
-//       </div>
+//     </div>
 //     );
-// }
+//   }
 
 // Page
 function Mycourses(){

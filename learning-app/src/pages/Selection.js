@@ -1,7 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
 import './Selection.css';
+import { Link } from 'react-router-dom';
 
+// Path Selection
 function Selection() {
 
     {/* Read in JSON File */}
@@ -55,7 +57,9 @@ function Selection() {
                     <p>Helpdesk Technicians - $50k</p>
                     <p>Support Analysts - $60k</p>
                 </div>
-                <button className='selection-column-button'>Start Path</button>
+                <Link to="/Assessment">
+                    <button className='selection-column-button'>Start Path</button>
+                </Link>
             </div>
             <div id='selection-column-2' className='selection-column'>
                 <div className='selection-column-title'>
@@ -75,7 +79,9 @@ function Selection() {
                     <p>Security Analyst - $70k</p>
                     <p>Penetration Tester - $80k</p>
                 </div>
-                <button className='selection-column-button'>Start Path</button>
+                <Link to="/Assessment">
+                    <button className='selection-column-button'>Start Path</button>
+                </Link>
             </div>
             <div id='selection-column-3' className='selection-column'>
                 <div className='selection-column-title'>
@@ -94,7 +100,9 @@ function Selection() {
                     <p>Front-End Developer - $80k</p>
                     <p>Back-End Developer - $80k</p>
                 </div>
-                <button className='selection-column-button'>Start Path</button>
+                <Link to="/Assessment">
+                    <button className='selection-column-button'>Start Path</button>
+                </Link>
             </div>
         </div>
         </>
