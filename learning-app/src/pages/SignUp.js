@@ -1,6 +1,6 @@
 import "./SignUp.css";
 import React from "react";
-import { useState, useCallback } from "react";
+import { useState, useCallback, Link } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 //Call the backend to authenticate the login information
@@ -12,8 +12,6 @@ function SendProfileDataToDataBase() {
 
 function HandleResult(success) {
   if (success) {
-    //switch to the new screen that says Success!
-    console.log("Success");
   } else {
     //display an error message
     console.log("Failure");
