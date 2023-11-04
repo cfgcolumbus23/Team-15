@@ -10,11 +10,11 @@ import Login from "./pages/Login";
 function App() {
   return (
     <Router>
-      <>
+      <Routes>
         <Route path="/" element={<Home />}/>  
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/Login" element={<Login />} />
-      </>
+      </Routes>
     </Router>
   );
 }

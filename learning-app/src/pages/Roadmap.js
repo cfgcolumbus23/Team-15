@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
 import './Roadmap.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Home from "./Homepage";
 
 // User information 
 const user = {
@@ -49,9 +50,11 @@ function Roadmap() {
         // Add login form component
     }
     return(
+        <><Home />
         <div>
             {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}>{item.moduleName}</div>)}
         </div>
+        </>
     );
 };
 
