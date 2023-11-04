@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { Nav } from '../components/Navbar/NavbarElements';
+import { RewardBar } from '../components/Rewardbar/RewardbarElement';
 import './Roadmap.css';
 
 // User information 
@@ -13,6 +14,7 @@ const user = {
 
 // Temporary 
 const isLoggedIn= true;
+
 // Page
 function Roadmap() {
     {/* Read in JSON File */}
@@ -50,8 +52,19 @@ function Roadmap() {
         content = <Main_Roadmap />;
     }
     return(
-        <div class="module-container">
-            {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}><p>{item.moduleName}</p> <p>Reward: ${item.reward}</p></div>)}
+        <> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+            <div class="module-container">
+            {data.Path1?.map((item, index)=><div class="module-card" id={`module-${index}`}>
+                <div class="module-card-text">
+                    <h3>{item.moduleName}</h3>
+                    <p>Reward: ${item.reward}</p>
+                </div>
+                <div class="module-card-icon">
+                    <span id={(item.complete=='True') ? 'module-card-icon-check' : 'module-card-icon-box'} class="material-symbols-outlined">{(item.complete == 'True') ? 'check_box' :'play_circle'}</span>
+                    {(item.complete=='True') ? <p>Complete</p> : <p>Start</p>}
+                </div>
+                </div>)}
             {content}
         </div>
     );
