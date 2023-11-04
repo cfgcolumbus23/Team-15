@@ -7,6 +7,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { database } from "../Connection";
 // import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
 import { ref, set } from "firebase/database";
+import { useNavigate } from "react-router-dom";
 //Call the backend to authenticate the login information
 //have it return a success or failure
 function SendProfileDataToDataBase(profileData) {
@@ -44,14 +45,6 @@ function SendUserDataToDataBase(profileData) {
     });
   console.log("Sent");
   return true;
-}
-
-function HandleResult(success) {
-  if (success) {
-  } else {
-    //display an error message
-    console.log("Failure");
-  }
 }
 
 //double verify password
@@ -240,6 +233,16 @@ function SignUpForm() {
     phoneNumber: "",
   });
 
+  const navigate = useNavigate();
+  function HandleResult(success, navigate) {
+    if (success) {
+      navigate("/roadmap");
+    } else {
+      //display an error message
+      console.log("Failure");
+    }
+  }
+
   //Saves the username and password
   //Authenticates it
   //Clears the input boxes
@@ -247,7 +250,7 @@ function SignUpForm() {
     e.preventDefault();
     SendUserDataToDataBase(profileData);
     const success = SendProfileDataToDataBase(profileData);
-    HandleResult(success);
+    HandleResult(true, navigate);
     ClearInputBoxes(setProfileData);
   };
 
