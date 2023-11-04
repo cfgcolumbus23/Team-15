@@ -1,0 +1,6 @@
+.footermenu{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position:fixed;
+}

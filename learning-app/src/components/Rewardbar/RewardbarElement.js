@@ -39,4 +39,5 @@ function RewardBarClosing() {
         </div>
       );
     };
+
 export default RewardBar;

@@ -1,7 +1,84 @@
+/* Container Styles */
 .quiz-container {
-    overflow-y: scroll;
-}
-
-.spacer {
-    height: 200px;
-}
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 200px;
+  }
+  
+  /* Header Styles */
+  h1 {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  /* Question Section Styles */
+  .quiz-questions {
+    margin-top: 20px;
+    text-align: left; /* Adjusted alignment for questions */
+  }
+  
+  /* List Styles */
+  ol {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Question Styles */
+  .quiz-q {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  /* Question Header Styles */
+  h3 {
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  /* Answer Styles */
+  .quiz-q div {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Radio Button Styles */
+  input[type="radio"] {
+    margin-right: 10px;
+    vertical-align: middle; /* Align radio buttons with labels */
+  }
+  
+  /* Label Styles */
+  label {
+    font-size: 1.2em;
+    color: #666;
+    cursor: pointer;
+    display: inline-block; /* Make labels display inline */
+  }
+  
+  /* Submit Button Styles */
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+  
+  /* Hover Effect for Button */
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
