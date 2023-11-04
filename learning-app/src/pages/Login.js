@@ -2,7 +2,7 @@ import "./Login.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
+import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
 import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
 import { useNavigate } from 'react-router-dom';
 
@@ -97,7 +97,6 @@ function LoginForm() {
       });
     setLogin({ username: "", password: "" }); //clear Data
   };
-
   // clean up later into smaller functions
   return (
     <div className="login-Page">
