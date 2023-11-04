@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import { Nav } from '../components/Navbar/NavbarElements';
 import './selection.css';
 
 function Selection() {
