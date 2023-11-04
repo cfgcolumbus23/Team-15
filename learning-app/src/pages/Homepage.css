@@ -94,9 +94,7 @@ h2 {
 }
 
 @media (max-width: 600px) {
-  .homepage-container {
-    width: 80%;
-  }
+
   
   .homepage-column {
     width: 80%;
