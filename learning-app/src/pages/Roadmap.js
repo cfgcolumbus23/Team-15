@@ -50,7 +50,7 @@ function Roadmap() {
         // Add login form component
     }
     return(
-        <><Home />
+      <>
         <div>
             {data.Path1?.map((item, index)=><div class="module" id={`module-${index}`}>{item.moduleName}</div>)}
         </div>
