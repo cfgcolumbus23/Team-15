@@ -112,7 +112,7 @@ function EnterDateOfBirth(profileData, setProfileData) {
   return (
     <div>
       <label>
-        Date of Borth:
+        Date of Birth:
         <input
           type="text"
           className="inputBox"
