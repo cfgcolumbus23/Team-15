@@ -2,13 +2,13 @@ import "./Login.css";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
-// import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
+import { auth } from "../Connection"; // Assuming Connection.js is in the src folder, outside of the pages folder.
+import { signInWithEmailAndPassword } from "firebase/auth"; // Corrected the import statement.
 
 //Call the backend to authenticate the login information
 //have it return a success or failure
 function AuthenticateLoginInformation(login) {
-  //return signInWithEmailAndPassword(auth, login.username, login.password);
+  return signInWithEmailAndPassword(auth, login.username, login.password);
 }
 
 function HandleResult(success) {
