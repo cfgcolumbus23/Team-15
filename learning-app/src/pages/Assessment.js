@@ -3,10 +3,6 @@ import { Nav } from '../components/Navbar/NavbarElements';
 import { RewardBar } from '../components/Rewardbar/RewardbarElement';
 import './Assessment.css';
 
-function checkAnswers() {
-    console.log("HEllo!");
-}
-
 function Assessment() {
 
     {/* Read in JSON File */}
@@ -46,28 +42,20 @@ function Assessment() {
                     <ol>
                     {data.map((item, index)=><li key={`q${index}`} className="quiz-q" id={`q${index}`}>
                         <h3>{item[0]}</h3>
-                        <div>
-                            <input type="radio" name="question1" id={`q${index}a`} value="a" />
-                            <label htmlFor={`q${index}a`}>{item[1][0]}</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="question1" id={`q${index}b`} value="b" />
-                            <label htmlFor={`q${index}a`}>{item[1][1]}</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="question1" id={`q${index}c`} value="c" />
-                            <label htmlFor={`q${index}a`}>{item[1][2]}</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="question1" id={`q${index}d`} value="d" />
-                            <label htmlFor={`q${index}a`}>{item[1][3]}</label>
-                        </div>
+                        {item[1].map((option, optionIndex)=> (
+                        <div key={`q${index}${optionIndex}`}>
+                            <input type="radio" name={`question${index}`} id={`q${index}a`} value={option} />
+                            <label htmlFor={`q${index}${optionIndex}`}>{option}</label>
+                        </div>))}
                     </li>)}
                     </ol>
-                    <button type="check" onClick={checkAnswers}>Check Answers</button>
+                    <button type="check" onClick={(e)=>{
+                        e.preventDefault();
+                        console.log("onclick");
+                        }}>Check Answers</button>
                 </form>
             </div>
-            <div className="quiz-results"></div>
+            <div id="quiz-results" className="quiz-results"></div>
             <div className="spacer"></div>
         </div>
     );
