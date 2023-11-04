@@ -8,6 +8,7 @@
 .barlabel p {
     transform: rotate(-45deg);
     font-size: small;
+    margin-top: 2px;
 }
 
 .rewarddiv{
@@ -16,7 +17,7 @@
     position:fixed;
     left:0;
     right:0;
-    padding:20px;
+    padding:10px;
 }
 
 #xbutton{
