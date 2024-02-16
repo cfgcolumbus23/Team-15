@@ -11,7 +11,7 @@ import { getDatabase, ref } from "firebase/database";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "***REMOVED***",
+  apiKey: "",
   authDomain: "cfg15-4f326.firebaseapp.com",
   projectId: "cfg15-4f326",
   storageBucket: "cfg15-4f326.appspot.com",
